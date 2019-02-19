@@ -1,6 +1,11 @@
 export default {
   'menu.home': 'Home',
-  'menu.dashboard': 'Dashboard',
+  'menu.dashboard': 'Trang chủ',
+  'menu.qlsp': 'Quản Lý Sản Phẩm',
+  'menu.qlnk': 'Quản Lý Nhập Kho',
+  'menu.qlxk': 'Quản Lý Xuất Kho',
+  'menu.dsnd': 'Danh Sách Người Dùng',
+  'menu.dskh': 'Danh Sách Kho Hàng',
   'menu.dashboard.monitor': 'Monitor',
   'menu.dashboard.workplace': 'Workplace',
   'menu.form': 'Form',
@@ -37,5 +42,5 @@ export default {
   'menu.email.list': 'Email list',
   'menu.email.detail': 'Email detail',
   'menu.setting.folder': 'Folder Setting',
-  'menu.setting.team': 'Team List',
+  'menu.setting.team': 'Team List'
 };

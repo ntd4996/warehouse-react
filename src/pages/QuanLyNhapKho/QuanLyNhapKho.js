@@ -1,14 +1,14 @@
 import React, { PureComponent } from 'react';
 import PageHeaderWrapper from '@/components/PageHeaderWrapper';
 
-class Dashboard extends PureComponent {
+class QuanLyNhapKho extends PureComponent {
   render() {
     return (
       <PageHeaderWrapper>
-        <div>Dashboard</div>
+        <div>QuanLyNhapKho</div>
       </PageHeaderWrapper>
     );
   }
 }
 
-export default Dashboard;
+export default QuanLyNhapKho;

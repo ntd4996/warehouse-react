@@ -1,61 +1,6 @@
 @import "~antd/lib/style/themes/default.less";
 
 /* 
-  Convert to from  src/components/ActiveChart/index.less
- */
-.antd-pro-components-active-chart-index-activeChart {
-  position: relative;
-}
-.antd-pro-components-active-chart-index-activeChartGrid {
-  p {
-    position: absolute;
-    top: 80px;
-  }
-  p:last-child {
-    top: 115px;
-  }
-}
-.antd-pro-components-active-chart-index-activeChartLegend {
-  position: relative;
-  font-size: 0;
-  margin-top: 8px;
-  height: 20px;
-  line-height: 20px;
-  span {
-    display: inline-block;
-    font-size: 12px;
-    text-align: center;
-    width: 33.33%;
-  }
-  span:first-child {
-    text-align: left;
-  }
-  span:last-child {
-    text-align: right;
-  }
-}
-.antd-pro-components-active-chart-index-dashedLine {
-  position: relative;
-  height: 1px;
-  top: -70px;
-  left: -3px;
-
-  .antd-pro-components-active-chart-index-line {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: linear-gradient(to right, transparent 50%, #e9e9e9 50%);
-    background-size: 6px;
-  }
-}
-
-.antd-pro-components-active-chart-index-dashedLine:last-child {
-  top: -36px;
-}
-
-/* 
   Convert to from  src/components/ArticleListContent/index.less
  */
 
@@ -146,360 +91,12 @@
 }
 
 /* 
-  Convert to from  src/components/Charts/ChartCard/index.less
- */
-.antd-pro-components-charts-chart-card-index-chartCard {
-  position: relative;
-  .antd-pro-components-charts-chart-card-index-chartTop {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-  }
-  .antd-pro-components-charts-chart-card-index-chartTopMargin {
-    margin-bottom: 12px;
-  }
-  .antd-pro-components-charts-chart-card-index-chartTopHasMargin {
-    margin-bottom: 20px;
-  }
-  .antd-pro-components-charts-chart-card-index-metaWrap {
-    float: left;
-  }
-  .antd-pro-components-charts-chart-card-index-avatar {
-    position: relative;
-    top: 4px;
-    float: left;
-    margin-right: 20px;
-    img {
-      border-radius: 100%;
-    }
-  }
-  .antd-pro-components-charts-chart-card-index-meta {
-    color: @text-color-secondary;
-    font-size: @font-size-base;
-    line-height: 22px;
-    height: 22px;
-  }
-  .antd-pro-components-charts-chart-card-index-action {
-    cursor: pointer;
-    position: absolute;
-    top: 4px;
-    right: 0;
-    line-height: 1;
-  }
-  .antd-pro-components-charts-chart-card-index-total {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    word-break: break-all;
-    white-space: nowrap;
-    color: @heading-color;
-    margin-top: 4px;
-    margin-bottom: 0;
-    font-size: 30px;
-    line-height: 38px;
-    height: 38px;
-  }
-  .antd-pro-components-charts-chart-card-index-content {
-    margin-bottom: 12px;
-    position: relative;
-    width: 100%;
-  }
-  .antd-pro-components-charts-chart-card-index-contentFixed {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-  }
-  .antd-pro-components-charts-chart-card-index-footer {
-    border-top: 1px solid @border-color-split;
-    padding-top: 9px;
-    margin-top: 8px;
-    & > * {
-      position: relative;
-    }
-  }
-  .antd-pro-components-charts-chart-card-index-footerMargin {
-    margin-top: 20px;
-  }
-}
-
-/* 
-  Convert to from  src/components/Charts/Field/index.less
- */
-.antd-pro-components-charts-field-index-field {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  margin: 0;
-  .antd-pro-components-charts-field-index-label,
-  .antd-pro-components-charts-field-index-number {
-    font-size: @font-size-base;
-    line-height: 22px;
-  }
-  .antd-pro-components-charts-field-index-number {
-    color: @heading-color;
-    margin-left: 8px;
-  }
-}
-
-/* 
-  Convert to from  src/components/Charts/index.less
- */
-.antd-pro-components-charts-index-miniChart {
-  position: relative;
-  width: 100%;
-  .antd-pro-components-charts-index-chartContent {
-    position: absolute;
-    bottom: -28px;
-    width: 100%;
-    > div {
-      margin: 0 -5px;
-      overflow: hidden;
-    }
-  }
-  .antd-pro-components-charts-index-chartLoading {
-    position: absolute;
-    top: 16px;
-    left: 50%;
-    margin-left: -7px;
-  }
-}
-
-/* 
-  Convert to from  src/components/Charts/MiniProgress/index.less
- */
-.antd-pro-components-charts-mini-progress-index-miniProgress {
-  padding: 5px 0;
-  position: relative;
-  width: 100%;
-  .antd-pro-components-charts-mini-progress-index-progressWrap {
-    background-color: @background-color-base;
-    position: relative;
-  }
-  .antd-pro-components-charts-mini-progress-index-progress {
-    transition: all 0.4s cubic-bezier(0.08, 0.82, 0.17, 1) 0s;
-    border-radius: 1px 0 0 1px;
-    background-color: @primary-color;
-    width: 0;
-    height: 100%;
-  }
-  .antd-pro-components-charts-mini-progress-index-target {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    span {
-      border-radius: 100px;
-      position: absolute;
-      top: 0;
-      left: 0;
-      height: 4px;
-      width: 2px;
-    }
-    span:last-child {
-      top: auto;
-      bottom: 0;
-    }
-  }
-}
-
-/* 
-  Convert to from  src/components/Charts/Pie/index.less
- */
-
-.antd-pro-components-charts-pie-index-pie {
-  position: relative;
-  .antd-pro-components-charts-pie-index-chart {
-    position: relative;
-  }
-  &.antd-pro-components-charts-pie-index-hasLegend
-    .antd-pro-components-charts-pie-index-chart {
-    width: ~"calc(100% - 240px)";
-  }
-  .antd-pro-components-charts-pie-index-legend {
-    position: absolute;
-    right: 0;
-    min-width: 200px;
-    top: 50%;
-    transform: translateY(-50%);
-    margin: 0 20px;
-    list-style: none;
-    padding: 0;
-    li {
-      cursor: pointer;
-      margin-bottom: 16px;
-      height: 22px;
-      line-height: 22px;
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-  }
-  .antd-pro-components-charts-pie-index-dot {
-    border-radius: 8px;
-    display: inline-block;
-    margin-right: 8px;
-    position: relative;
-    top: -1px;
-    height: 8px;
-    width: 8px;
-  }
-  .antd-pro-components-charts-pie-index-line {
-    background-color: @border-color-split;
-    display: inline-block;
-    margin-right: 8px;
-    width: 1px;
-    height: 16px;
-  }
-  .antd-pro-components-charts-pie-index-legendTitle {
-    color: @text-color;
-  }
-  .antd-pro-components-charts-pie-index-percent {
-    color: @text-color-secondary;
-  }
-  .antd-pro-components-charts-pie-index-value {
-    position: absolute;
-    right: 0;
-  }
-  .antd-pro-components-charts-pie-index-title {
-    margin-bottom: 8px;
-  }
-  .antd-pro-components-charts-pie-index-total {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    text-align: center;
-    max-height: 62px;
-    transform: translate(-50%, -50%);
-    & > h4 {
-      color: @text-color-secondary;
-      font-size: 14px;
-      line-height: 22px;
-      height: 22px;
-      margin-bottom: 8px;
-      font-weight: normal;
-    }
-    & > p {
-      color: @heading-color;
-      display: block;
-      font-size: 1.2em;
-      height: 32px;
-      line-height: 32px;
-      white-space: nowrap;
-    }
-  }
-}
-
-.antd-pro-components-charts-pie-index-legendBlock {
-  &.antd-pro-components-charts-pie-index-hasLegend
-    .antd-pro-components-charts-pie-index-chart {
-    width: 100%;
-    margin: 0 0 32px 0;
-  }
-  .antd-pro-components-charts-pie-index-legend {
-    position: relative;
-    transform: none;
-  }
-}
-
-/* 
-  Convert to from  src/components/Charts/Radar/index.less
- */
-.antd-pro-components-charts-radar-index-radar {
-  .antd-pro-components-charts-radar-index-legend {
-    margin-top: 16px;
-    .antd-pro-components-charts-radar-index-legendItem {
-      position: relative;
-      text-align: center;
-      cursor: pointer;
-      color: @text-color-secondary;
-      line-height: 22px;
-      p {
-        margin: 0;
-      }
-      h6 {
-        color: @heading-color;
-        padding-left: 16px;
-        font-size: 24px;
-        line-height: 32px;
-        margin-top: 4px;
-        margin-bottom: 0;
-      }
-      &:after {
-        background-color: @border-color-split;
-        position: absolute;
-        top: 8px;
-        right: 0;
-        height: 40px;
-        width: 1px;
-        content: "";
-      }
-    }
-    > :last-child .antd-pro-components-charts-radar-index-legendItem:after {
-      display: none;
-    }
-    .antd-pro-components-charts-radar-index-dot {
-      border-radius: 6px;
-      display: inline-block;
-      margin-right: 6px;
-      position: relative;
-      top: -1px;
-      height: 6px;
-      width: 6px;
-    }
-  }
-}
-
-/* 
-  Convert to from  src/components/Charts/TagCloud/index.less
- */
-.antd-pro-components-charts-tag-cloud-index-tagCloud {
-  overflow: hidden;
-  canvas {
-    transform-origin: 0 0;
-  }
-}
-
-/* 
-  Convert to from  src/components/Charts/TimelineChart/index.less
- */
-.antd-pro-components-charts-timeline-chart-index-timelineChart {
-  background: #fff;
-}
-
-/* 
-  Convert to from  src/components/Charts/WaterWave/index.less
- */
-.antd-pro-components-charts-water-wave-index-waterWave {
-  display: inline-block;
-  position: relative;
-  transform-origin: left;
-  .antd-pro-components-charts-water-wave-index-text {
-    position: absolute;
-    left: 0;
-    top: 32px;
-    text-align: center;
-    width: 100%;
-    span {
-      color: @text-color-secondary;
-      font-size: 14px;
-      line-height: 22px;
-    }
-    h4 {
-      color: @heading-color;
-      line-height: 32px;
-      font-size: 24px;
-    }
-  }
-  .antd-pro-components-charts-water-wave-index-waterWaveCanvasWrapper {
-    transform: scale(0.5);
-    transform-origin: 0 0;
-  }
-}
-
-/* 
   Convert to from  src/components/DescriptionList/index.less
-*/
+
+  */
 .antd-pro-components-description-list-index-descriptionList {
   // offset the padding-bottom of last row
+
   .ant-row {
     margin-bottom: -16px;
     overflow: hidden;
@@ -539,6 +136,7 @@
 
   &.antd-pro-components-description-list-index-small {
     // offset the padding-bottom of last row
+
     .ant-row {
       margin-bottom: -8px;
     }
@@ -566,52 +164,6 @@
 
     .antd-pro-components-description-list-index-detail {
       display: block;
-    }
-  }
-}
-
-/* 
-  Convert to from  src/components/EditableItem/index.less
- */
-
-.antd-pro-components-editable-item-index-editableItem {
-  line-height: @input-height-base;
-  display: table;
-  width: 100%;
-  margin-top: (@font-size-base * @line-height-base - @input-height-base) / 2;
-
-  .antd-pro-components-editable-item-index-wrapper {
-    display: table-row;
-
-    & > * {
-      display: table-cell;
-    }
-
-    & > *:first-child {
-      width: 85%;
-    }
-
-    .antd-pro-components-editable-item-index-icon {
-      cursor: pointer;
-      text-align: right;
-    }
-  }
-}
-
-/* 
-  Convert to from  src/components/EditableLinkGroup/index.less
- */
-.antd-pro-components-editable-link-group-index-linkGroup {
-  padding: 20px 0 8px 24px;
-  font-size: 0;
-  & > a {
-    color: @text-color;
-    display: inline-block;
-    font-size: @font-size-base;
-    margin-bottom: 13px;
-    width: 25%;
-    &:hover {
-      color: @primary-color;
     }
   }
 }
@@ -884,6 +436,7 @@
     .antd-pro-components-global-header-index-avatar {
       margin: ~"calc((@{layout-header-height} - 24px) / 2)" 0;
       margin-right: 8px;
+      margin-left: 8px;
       color: @primary-color;
       background: rgba(255, 255, 255, 0.85);
       vertical-align: top;
@@ -1067,7 +620,7 @@
     text-align: center;
   }
   .ant-tabs-bar {
-    margin-bottom: 0;
+    margin-bottom: 4px;
   }
 }
 
@@ -1078,9 +631,6 @@
 .antd-pro-components-notice-icon-notice-list-list {
   max-height: 400px;
   overflow: auto;
-  &::-webkit-scrollbar {
-    display: none;
-  }
   .antd-pro-components-notice-icon-notice-list-item {
     transition: all 0.3s;
     overflow: hidden;
@@ -1130,16 +680,6 @@
       margin-top: -1.5px;
     }
   }
-  .antd-pro-components-notice-icon-notice-list-loadMore {
-    padding: 8px 0;
-    cursor: pointer;
-    color: @primary-6;
-    text-align: center;
-    &.antd-pro-components-notice-icon-notice-list-loadedAll {
-      cursor: unset;
-      color: rgba(0, 0, 0, 0.25);
-    }
-  }
 }
 
 .antd-pro-components-notice-icon-notice-list-notFound {
@@ -1169,76 +709,9 @@
 }
 
 /* 
-  Convert to from  src/components/NumberInfo/index.less
- */
-.antd-pro-components-number-info-index-numberInfo {
-  .antd-pro-components-number-info-index-suffix {
-    color: @text-color;
-    font-size: 16px;
-    font-style: normal;
-    margin-left: 4px;
-  }
-  .antd-pro-components-number-info-index-numberInfoTitle {
-    color: @text-color;
-    font-size: @font-size-lg;
-    margin-bottom: 16px;
-    transition: all 0.3s;
-  }
-  .antd-pro-components-number-info-index-numberInfoSubTitle {
-    color: @text-color-secondary;
-    font-size: @font-size-base;
-    height: 22px;
-    line-height: 22px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    word-break: break-all;
-    white-space: nowrap;
-  }
-  .antd-pro-components-number-info-index-numberInfoValue {
-    margin-top: 4px;
-    font-size: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    word-break: break-all;
-    white-space: nowrap;
-    & > span {
-      color: @heading-color;
-      display: inline-block;
-      line-height: 32px;
-      height: 32px;
-      font-size: 24px;
-      margin-right: 32px;
-    }
-    .antd-pro-components-number-info-index-subTotal {
-      color: @text-color-secondary;
-      font-size: @font-size-lg;
-      vertical-align: top;
-      margin-right: 0;
-      i {
-        font-size: 12px;
-        transform: scale(0.82);
-        margin-left: 4px;
-      }
-      .anticon-caret-up {
-        color: @red-6;
-      }
-      .anticon-caret-down {
-        color: @green-6;
-      }
-    }
-  }
-}
-.antd-pro-components-number-info-index-numberInfolight {
-  .antd-pro-components-number-info-index-numberInfoValue {
-    & > span {
-      color: @text-color;
-    }
-  }
-}
-
-/* 
   Convert to from  src/components/PageHeader/index.less
-*/
+
+      */
 
 .antd-pro-components-page-header-index-pageHeader {
   background: @component-background;
@@ -1508,112 +981,148 @@
 }
 
 /* 
-  Convert to from  src/components/SettingDrawer/index.less
-*/
-
-.antd-pro-components-setting-drawer-index-content {
-  min-height: 100%;
-  background: #fff;
-  position: relative;
+  Convert to from  src/components/SiderFolder/FolderTree.less
+ */
+.antd-pro-components-sider-folder-folder-tree-treeFolder {
+  width: 100%;
+  background: #000c17;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45) inset;
+}
+.antd-pro-components-sider-folder-folder-tree-folderTree span {
+  height: 50px;
+  color: rgba(255, 255, 255, 0.65) !important;
+  background: #001529;
+}
+.antd-pro-components-sider-folder-folder-tree-folderTree :hover {
+  background-color: #1890ff;
+}
+.antd-pro-components-sider-folder-folder-tree-colorFolder span {
+  color: rgba(255, 255, 255, 0.65) !important;
 }
 
-.antd-pro-components-setting-drawer-index-blockChecbox {
-  display: flex;
-  .antd-pro-components-setting-drawer-index-item {
-    margin-right: 16px;
-    position: relative;
-    // box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
-    border-radius: @border-radius-base;
-    cursor: pointer;
-    img {
-      width: 48px;
-    }
-  }
-  .antd-pro-components-setting-drawer-index-selectIcon {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    padding-top: 15px;
-    padding-left: 24px;
-    height: 100%;
-    color: @primary-color;
-    font-size: 14px;
-    font-weight: bold;
-  }
-}
-
-.antd-pro-components-setting-drawer-index-color_block {
-  width: 38px;
-  height: 22px;
-  margin: 4px;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-right: 12px;
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.antd-pro-components-setting-drawer-index-title {
-  font-size: 14px;
-  color: @heading-color;
-  line-height: 22px;
-  margin-bottom: 12px;
-}
-
-.antd-pro-components-setting-drawer-index-handle {
-  position: absolute;
-  top: 240px;
-  background: @primary-color;
-  width: 48px;
-  height: 48px;
-  right: 300px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  pointer-events: auto;
-  z-index: 0;
-  text-align: center;
-  font-size: 16px;
-  border-radius: 4px 0 0 4px;
-}
-
-.antd-pro-components-setting-drawer-index-productionHint {
-  font-size: 12px;
-  margin-top: 16px;
+.antd-pro-components-sider-folder-folder-tree-colorFolder span :hover {
+  color: #1890ff !important;
 }
 
 /* 
-  Convert to from  src/components/SettingDrawer/ThemeColor.less
+  Convert to from  src/components/SiderFolder/index.less
  */
-.antd-pro-components-setting-drawer-theme-color-themeColor {
+@nav-header-height: @layout-header-height;
+@pro-header-hover-bg: rgba(0, 0, 0, 0.025);
+
+.antd-pro-components-sider-folder-index-logo {
+  height: @nav-header-height;
+  position: relative;
+  line-height: @nav-header-height;
+  padding-left: (@menu-collapsed-width - 56px) / 2;
+  transition: all 0.3s;
+  background: #002140;
   overflow: hidden;
-  margin-top: 24px;
-  .antd-pro-components-setting-drawer-theme-color-title {
-    font-size: 14px;
-    color: rgba(0, 0, 0, 0.65);
-    line-height: 22px;
-    margin-bottom: 12px;
+  img {
+    display: inline-block;
+    vertical-align: middle;
+    height: 32px;
   }
-  .antd-pro-components-setting-drawer-theme-color-colorBlock {
-    width: 20px;
-    height: 20px;
-    border-radius: 2px;
-    float: left;
-    cursor: pointer;
-    margin-right: 8px;
-    text-align: center;
-    color: #fff;
-    font-weight: bold;
+  h1 {
+    color: white;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 20px;
+    margin: 0 0 0 12px;
+    font-family: Avenir, "Helvetica Neue", Arial, Helvetica, sans-serif;
+    font-weight: 600;
   }
+}
+
+.antd-pro-components-sider-folder-index-sider {
+  min-height: 100vh;
+  box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
+  position: relative;
+  z-index: 10;
+  &.antd-pro-components-sider-folder-index-fixSiderbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    :global(.ant-menu-root) {
+      overflow-y: auto;
+      height: ~"calc(100vh - @{nav-header-height})";
+    }
+  }
+  &.antd-pro-components-sider-folder-index-light {
+    box-shadow: 2px 0 8px 0 rgba(29, 35, 41, 0.05);
+    background-color: white;
+    .antd-pro-components-sider-folder-index-logo {
+      background: white;
+      box-shadow: 1px 1px 0 0 @border-color-split;
+      h1 {
+        color: @primary-color;
+      }
+    }
+    :global(.ant-menu-light) {
+      border-right-color: transparent;
+    }
+  }
+}
+
+.antd-pro-components-sider-folder-index-icon {
+  width: 14px;
+  margin-right: 10px;
+}
+
+.top-nav-menu li.ant-menu-item {
+  height: @nav-header-height;
+  line-height: @nav-header-height;
+}
+
+.drawer .drawer-content {
+  background: #001529;
+}
+
+.ant-menu-inline-collapsed {
+  & > .ant-menu-item .sider-menu-item-img + span,
+  &
+    > .ant-menu-item-group
+    > .ant-menu-item-group-list
+    > .ant-menu-item
+    .sider-menu-item-img
+    + span,
+  & > .ant-menu-submenu > .ant-menu-submenu-title .sider-menu-item-img + span {
+    max-width: 0;
+    display: inline-block;
+    opacity: 0;
+  }
+}
+
+.ant-menu-item .sider-menu-item-img + span,
+.ant-menu-submenu-title .sider-menu-item-img + span {
+  transition: opacity 0.3s @ease-in-out, width 0.3s @ease-in-out;
+  opacity: 1;
+}
+
+/* 
+  Convert to from  src/components/SiderFolder/TeamInfo.less
+ */
+.antd-pro-components-sider-folder-team-info-teamInfo {
+  width: 100%;
+  background: #001529;
+  height: 40px;
+  padding-top: 6px;
+  text-align: left;
+}
+.antd-pro-components-sider-folder-team-info-teamInfo span {
+  font-size: 17px;
+  position: absolute;
+  left: 65px;
+  color: #ffffff;
+  font-size: 1.2em;
+  font-weight: bold;
 }
 
 /* 
   Convert to from  src/components/SiderMenu/index.less
  */
-
 @nav-header-height: @layout-header-height;
+@pro-header-hover-bg: rgba(0, 0, 0, 0.025);
 
 .antd-pro-components-sider-menu-index-logo {
   height: @nav-header-height;
@@ -1704,9 +1213,17 @@
   opacity: 1;
 }
 
-.ant-drawer-left {
-  .ant-drawer-body {
-    padding: 0;
+.antd-pro-components-sider-menu-index-trigger {
+  position: absolute;
+  right: 15px;
+  top: 49px;
+  font-size: 20px;
+  height: @layout-header-height;
+  cursor: pointer;
+  transition: all 0.3s, padding 0s;
+  padding: ~"calc((@{layout-header-height} - 20px) / 2)" 24px;
+  &:hover {
+    background: @pro-header-hover-bg;
   }
 }
 
@@ -1824,6 +1341,47 @@
 }
 
 /* 
+  Convert to from  src/components/TeamNav/index.less
+ */
+.antd-pro-components-team-nav-index-teamNav {
+  width: 50px !important;
+  background: #001529;
+  box-sizing: border-box;
+  height: 100%;
+  padding: 8px;
+}
+
+/* 
+  Convert to from  src/components/TeamNav/TeamItem.less
+ */
+.antd-pro-components-team-nav-team-item-teamItem {
+  width: 50px !important;
+  margin: auto;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 3px;
+}
+.antd-pro-components-team-nav-team-item-teamItem a {
+  display: block;
+  line-height: 50px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.65);
+  border-radius: 50%;
+  border: 1px solid #d1d1d1;
+  line-height: 32px;
+  width: 34px;
+}
+.antd-pro-components-team-nav-team-item-teamItem a:checked {
+  border-radius: none;
+  border-bottom: 1px solid #d1d1d1;
+  border-top: 1px solid #d1d1d1;
+}
+
+/* 
   Convert to from  src/components/TopNavHeader/index.less
  */
 
@@ -1897,47 +1455,11 @@
 }
 
 /* 
-  Convert to from  src/components/Trend/index.less
+  Convert to from  src/layouts/AdminLayout.less
  */
-
-.antd-pro-components-trend-index-trendItem {
-  display: inline-block;
-  font-size: @font-size-base;
-  line-height: 22px;
-
-  .antd-pro-components-trend-index-up,
-  .antd-pro-components-trend-index-down {
-    margin-left: 4px;
-    position: relative;
-    top: 1px;
-    i {
-      font-size: 12px;
-      transform: scale(0.83);
-    }
-  }
-  .antd-pro-components-trend-index-up {
-    color: @red-6;
-  }
-  .antd-pro-components-trend-index-down {
-    color: @green-6;
-    top: -1px;
-  }
-
-  &.antd-pro-components-trend-index-trendItemGrey
-    .antd-pro-components-trend-index-up,
-  &.antd-pro-components-trend-index-trendItemGrey
-    .antd-pro-components-trend-index-down {
-    color: @text-color;
-  }
-
-  &.antd-pro-components-trend-index-reverseColor
-    .antd-pro-components-trend-index-up {
-    color: @green-6;
-  }
-  &.antd-pro-components-trend-index-reverseColor
-    .antd-pro-components-trend-index-down {
-    color: @red-6;
-  }
+.antd-pro-layouts-admin-layout-content {
+  margin: 24px;
+  padding-top: @layout-header-height;
 }
 
 /* 
@@ -2034,1352 +1556,697 @@
   margin-bottom: 40px;
 }
 
-/* 
-  Convert to from  src/pages/Account/Center/Articles.less
- */
-.antd-pro-pages-account-center-articles-articleList {
-  .ant-list-item:first-child {
-    padding-top: 0;
-  }
-}
-a.antd-pro-pages-account-center-articles-listItemMetaTitle {
-  color: @heading-color;
-}
+/*
+  Convert to from  src/pages/EmailDetail/components/Reply.less
 
-/* 
-  Convert to from  src/pages/Account/Center/Center.less
- */
-
-.antd-pro-pages-account-center-center-avatarHolder {
-  text-align: center;
-  margin-bottom: 24px;
-
-  & > img {
-    width: 104px;
-    height: 104px;
-    margin-bottom: 20px;
-  }
-
-  .antd-pro-pages-account-center-center-name {
-    font-size: 20px;
-    line-height: 28px;
-    font-weight: 500;
-    color: @heading-color;
-    margin-bottom: 4px;
-  }
-}
-
-.antd-pro-pages-account-center-center-detail {
-  p {
-    margin-bottom: 8px;
-    padding-left: 26px;
-    position: relative;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-
-  i {
-    position: absolute;
-    height: 14px;
-    width: 14px;
-    left: 0;
-    top: 4px;
-    background: url(https://gw.alipayobjects.com/zos/rmsportal/pBjWzVAHnOOtAUvZmZfy.svg);
-
-    &.antd-pro-pages-account-center-center-title {
-      background-position: 0 0;
-    }
-
-    &.antd-pro-pages-account-center-center-group {
-      background-position: 0 -22px;
-    }
-
-    &.antd-pro-pages-account-center-center-address {
-      background-position: 0 -44px;
-    }
-  }
-}
-
-.antd-pro-pages-account-center-center-tagsTitle,
-.antd-pro-pages-account-center-center-teamTitle {
-  font-weight: 500;
-  color: @heading-color;
-  margin-bottom: 12px;
-}
-
-.antd-pro-pages-account-center-center-tags {
-  .ant-tag {
-    margin-bottom: 8px;
-  }
-}
-
-.antd-pro-pages-account-center-center-team {
-  .ant-avatar {
-    margin-right: 12px;
-  }
-
-  a {
-    display: block;
-    margin-bottom: 24px;
-    color: @text-color;
-    transition: color 0.3s;
-    .textOverflow();
-
-    &:hover {
-      color: @primary-color;
-    }
-  }
-}
-
-.antd-pro-pages-account-center-center-tabsCard {
-  .ant-card-head {
-    padding: 0 16px;
-  }
-}
-
-/* 
-  Convert to from  src/pages/Account/Settings/BaseView.less
- */
-
-.antd-pro-pages-account-settings-base-view-baseView {
-  display: flex;
-  padding-top: 12px;
-
-  .antd-pro-pages-account-settings-base-view-left {
-    max-width: 448px;
-    min-width: 224px;
-  }
-  .antd-pro-pages-account-settings-base-view-right {
-    flex: 1;
-    padding-left: 104px;
-    .antd-pro-pages-account-settings-base-view-avatar_title {
-      height: 22px;
-      font-size: @font-size-base;
-      color: @heading-color;
-      line-height: 22px;
-      margin-bottom: 8px;
-    }
-    .antd-pro-pages-account-settings-base-view-avatar {
-      width: 144px;
-      height: 144px;
-      margin-bottom: 12px;
-      overflow: hidden;
-      img {
-        width: 100%;
-      }
-    }
-    .antd-pro-pages-account-settings-base-view-button_view {
-      width: 144px;
-      text-align: center;
-    }
-  }
-}
-
-@media screen and (max-width: @screen-xl) {
-  .antd-pro-pages-account-settings-base-view-baseView {
-    flex-direction: column-reverse;
-
-    .antd-pro-pages-account-settings-base-view-right {
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      max-width: 448px;
-      .antd-pro-pages-account-settings-base-view-avatar_title {
-        display: none;
-      }
-    }
-  }
-}
-
-/* 
-  Convert to from  src/pages/Account/Settings/GeographicView.less
- */
-
-.antd-pro-pages-account-settings-geographic-view-row {
-  .antd-pro-pages-account-settings-geographic-view-item {
-    max-width: 220px;
-    width: 50%;
-  }
-  .antd-pro-pages-account-settings-geographic-view-item:first-child {
-    margin-right: 8px;
-    width: ~"calc(50% - 8px)";
-  }
-}
-
-@media screen and (max-width: @screen-sm) {
-  .antd-pro-pages-account-settings-geographic-view-item:first-child {
-    margin: 0;
-    margin-bottom: 8px;
-  }
-}
-
-/* 
-  Convert to from  src/pages/Account/Settings/Info.less
 */
-.antd-pro-pages-account-settings-info-main {
+
+.antd-pro-pages-email-detail-components-reply-antCardExtra {
+  text-align: left !important;
+}
+
+.antd-pro-pages-email-detail-components-reply-cardReply {
+  //box-shadow: 5px 5px 29px 8px #888888;
+}
+
+.antd-pro-pages-email-detail-components-reply-formInputReply {
+  text-align: left;
+  border-left: 0;
+  border-top: 0;
+  border-right: 0;
+  border-radius: 0;
+}
+
+.antd-pro-pages-email-detail-components-reply-selectSignature {
+  width: 150px;
+  float: right;
+  margin-top: -5px;
+}
+
+.antd-pro-pages-email-detail-components-reply-contentSignatureReply {
+  color: #368ce2;
+  width: 77%;
+  float: left;
+}
+
+.antd-pro-pages-email-detail-components-reply-footerContentReply {
+  border-top: solid 1px #cccccc;
+  border-bottom: solid 1px #cccccc;
+  margin-top: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  float: left;
   width: 100%;
-  height: 100%;
-  background-color: @body-background;
-  display: flex;
-  padding-top: 16px;
-  padding-bottom: 16px;
-  overflow: auto;
-  .antd-pro-pages-account-settings-info-leftmenu {
-    width: 224px;
-    border-right: @border-width-base @border-style-base @border-color-split;
-    .ant-menu-inline {
-      border: none;
-    }
-    .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
-      font-weight: bold;
-    }
-  }
-  .antd-pro-pages-account-settings-info-right {
-    flex: 1;
-    padding-left: 40px;
-    padding-right: 40px;
-    padding-top: 8px;
-    padding-bottom: 8px;
-    .antd-pro-pages-account-settings-info-title {
-      font-size: 20px;
-      color: @heading-color;
-      line-height: 28px;
-      font-weight: 500;
-      margin-bottom: 12px;
-    }
-  }
-  .ant-list-split .ant-list-item:last-child {
-    border-bottom: 1px solid #e8e8e8;
-  }
-  .ant-list-item {
-    padding-top: 14px;
-    padding-bottom: 14px;
-  }
-}
-.ant-list-item-meta {
-  // 账号绑定图标
-  .taobao {
-    color: #ff4000;
-    display: block;
-    font-size: 48px;
-    line-height: 48px;
-    border-radius: @border-radius-base;
-  }
-  .dingding {
-    background-color: #2eabff;
-    color: #fff;
-    font-size: 32px;
-    line-height: 32px;
-    padding: 6px;
-    margin: 2px;
-    border-radius: @border-radius-base;
-  }
-  .alipay {
-    color: #2eabff;
-    font-size: 48px;
-    line-height: 48px;
-    border-radius: @border-radius-base;
-  }
-}
-// 密码强度
-font.strong {
-  color: @success-color;
-}
-font.medium {
-  color: @warning-color;
-}
-font.weak {
-  color: @error-color;
 }
 
-@media screen and (max-width: @screen-md) {
-  .antd-pro-pages-account-settings-info-main {
-    flex-direction: column;
-    .antd-pro-pages-account-settings-info-leftmenu {
-      width: 100%;
-      border: none;
-    }
-    .antd-pro-pages-account-settings-info-right {
-      padding: 40px;
-    }
-  }
+.antd-pro-pages-email-detail-components-reply-footerStatusReply {
+  border: solid 1px #cccccc;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  text-align: center;
+  width: 140px;
+  border-radius: 5px;
+  float: left;
+  height: 32px;
+  line-height: 32px;
 }
 
-/* 
-  Convert to from  src/pages/Account/Settings/PhoneView.less
- */
-.antd-pro-pages-account-settings-phone-view-area_code {
-  max-width: 128px;
-  margin-right: 8px;
-  width: 30%;
-}
-.antd-pro-pages-account-settings-phone-view-phone_number {
-  max-width: 312px;
-  width: ~"calc(70% - 8px)";
+.antd-pro-pages-email-detail-components-reply-footerCheckerReply {
+  width: 145px !important;
+  float: left;
+  margin-top: 8px;
+  margin-bottom: 12px;
+  margin-left: 20px;
+  color: lightslategray;
 }
 
-/* 
-  Convert to from  src/pages/Dashboard/Analysis.less
- */
-
-.antd-pro-pages-dashboard-analysis-iconGroup {
-  i {
-    transition: color 0.32s;
-    color: @text-color-secondary;
-    cursor: pointer;
-    margin-left: 16px;
-    &:hover {
-      color: @text-color;
-    }
-  }
+.antd-pro-pages-email-detail-components-reply-footerButtonReply {
+  margin-top: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  float: left;
+  width: 100%;
 }
 
-.antd-pro-pages-dashboard-analysis-rankingList {
-  margin: 25px 0 0;
-  padding: 0;
+.antd-pro-pages-email-detail-components-reply-inputTagBbCcBcc {
+  width: 100%;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  overflow: hidden;
+  line-height: 0px;
+}
+
+.antd-pro-pages-email-detail-components-reply-reactTagsinputTag {
+  display: inline-block;
+}
+
+.antd-pro-pages-email-detail-components-reply-tagInputContainer {
+  height: auto;
+}
+
+.antd-pro-pages-email-detail-components-reply-tagCss {
+  background-color: #000;
+  border-radius: 2px;
+  border: 1px solid #a5d24a;
+  color: #638421;
+  display: inline-block;
+  font-family: sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  margin-bottom: 5px;
+  margin-right: 5px;
+  padding: 5px;
+  box-sizing: border-box;
   list-style: none;
-  li {
-    .clearfix();
-    margin-top: 16px;
-    display: flex;
-    align-items: center;
-    span {
-      color: @text-color;
-      font-size: 14px;
-      line-height: 22px;
-    }
-    .antd-pro-pages-dashboard-analysis-rankingItemNumber {
-      background-color: @background-color-base;
-      border-radius: 20px;
-      display: inline-block;
-      font-size: 12px;
-      font-weight: 600;
-      margin-right: 16px;
-      height: 20px;
-      line-height: 20px;
-      width: 20px;
+  border: none;
+  width: 150px;
+}
+
+.antd-pro-pages-email-detail-components-reply-contentContaier {
+  height: 182px;
+  border-radius: 5px;
+  border-bottom-left-radius: 0.5em;
+  border-bottom-right-radius: 0.5em;
+}
+
+.antd-pro-pages-email-detail-components-reply-contentQuill {
+  height: 140px;
+  line-height: 24px;
+}
+
+.antd-pro-pages-email-detail-components-reply-inputTagBbCcBcc:hover {
+  border-color: #1890ff;
+}
+
+.antd-pro-pages-email-detail-components-reply-signatureBlock {
+  display: block;
+  margin-top: 57px;
+}
+
+/* 
+  Convert to from  src/pages/EmailDetail/EmailDetail.less
+ */
+
+.antd-pro-pages-email-detail-email-detail-mailDetailHeaderWrap {
+  border-bottom: 1px solid #bababa;
+  background: #fff;
+  padding: 20px;
+  padding-bottom: 25px;
+
+  .antd-pro-pages-email-detail-email-detail-mailDetailHeader {
+    width: 100%;
+    height: auto;
+
+    .antd-pro-pages-email-detail-email-detail-mailPriority {
+      width: 50px;
       text-align: center;
-      margin-top: 1.5px;
-      &.antd-pro-pages-dashboard-analysis-active {
-        background-color: #314659;
+      float: left;
+      font-size: 25px;
+
+      .antd-pro-pages-email-detail-email-detail-priorityHIGH {
+        color: #f3cb54;
+      }
+      .antd-pro-pages-email-detail-email-detail-priorityNORMAL {
+        color: #1890ff;
+      }
+      .antd-pro-pages-email-detail-email-detail-priorityAGENT {
+        color: #ff4d4f;
+      }
+    }
+
+    .antd-pro-pages-email-detail-email-detail-mailSubject {
+      float: left;
+      width: calc(100% - 280px);
+
+      h3 {
+        line-height: 35px;
+        margin: 0;
+        font-size: 20px;
+        color: #777;
+      }
+    }
+
+    .antd-pro-pages-email-detail-email-detail-headerAction {
+      width: 230px;
+      float: right;
+
+      ul {
+        margin: 0;
+        padding: 0;
+        float: right;
+      }
+
+      ul li {
+        float: left;
+        margin-left: 10px;
+      }
+    }
+  }
+
+  .antd-pro-pages-email-detail-email-detail-mailInvolveInfo {
+    padding-left: 50px;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    .antd-pro-pages-email-detail-email-detail-mailAddressWrap {
+      .antd-pro-pages-email-detail-email-detail-mailFrom {
+        font-weight: bold;
+        color: #444;
+      }
+
+      .antd-pro-pages-email-detail-email-detail-toLabel {
+        color: #777;
+        margin-left: 5px;
+      }
+
+      .antd-pro-pages-email-detail-email-detail-mailTo {
+        font-weight: bold;
+        color: #444;
+        margin-left: 5px;
+      }
+
+      .antd-pro-pages-email-detail-email-detail-btnShowMore {
+        font-weight: bold;
+        color: #444;
+        margin-left: 4px;
+        display: inline-block;
+        padding: 0 5px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .antd-pro-pages-email-detail-email-detail-mailInfoWrap {
+    padding-left: 50px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 15px;
+    overflow: hidden;
+
+    .antd-pro-pages-email-detail-email-detail-mailInfoItem {
+      float: left;
+      padding: 3px 10px;
+      border-radius: 3px;
+      display: inline-block;
+      margin-right: 14px;
+      cursor: default;
+
+      &.antd-pro-pages-email-detail-email-detail-mailFolder {
+        background: #eba300;
+        border: 1px solid #eba300;
         color: #fff;
       }
-    }
-    .antd-pro-pages-dashboard-analysis-rankingItemTitle {
-      flex: 1;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      overflow: hidden;
-      margin-right: 8px;
-    }
-  }
-}
-
-.antd-pro-pages-dashboard-analysis-salesExtra {
-  display: inline-block;
-  margin-right: 24px;
-  a {
-    color: @text-color;
-    margin-left: 24px;
-    &:hover {
-      color: @primary-color;
-    }
-    &.antd-pro-pages-dashboard-analysis-currentDate {
-      color: @primary-color;
-    }
-  }
-}
-
-.antd-pro-pages-dashboard-analysis-salesCard {
-  .antd-pro-pages-dashboard-analysis-salesBar {
-    padding: 0 0 32px 32px;
-  }
-  .antd-pro-pages-dashboard-analysis-salesRank {
-    padding: 0 32px 32px 72px;
-  }
-  .ant-tabs-bar {
-    padding-left: 16px;
-    .ant-tabs-nav .ant-tabs-tab {
-      padding-top: 16px;
-      padding-bottom: 14px;
-      line-height: 24px;
-    }
-  }
-  .ant-tabs-extra-content {
-    padding-right: 24px;
-    line-height: 55px;
-  }
-  .ant-card-head {
-    position: relative;
-  }
-  .ant-card-head-title {
-    align-items: normal;
-  }
-}
-
-.antd-pro-pages-dashboard-analysis-salesCardExtra {
-  height: inherit;
-}
-
-.antd-pro-pages-dashboard-analysis-salesTypeRadio {
-  position: absolute;
-  right: 54px;
-  bottom: 12px;
-}
-
-.antd-pro-pages-dashboard-analysis-offlineCard {
-  .ant-tabs-ink-bar {
-    bottom: auto;
-  }
-  .ant-tabs-bar {
-    border-bottom: none;
-  }
-  .ant-tabs-nav-container-scrolling {
-    padding-left: 40px;
-    padding-right: 40px;
-  }
-  .ant-tabs-tab-prev-icon:before {
-    position: relative;
-    left: 6px;
-  }
-  .ant-tabs-tab-next-icon:before {
-    position: relative;
-    right: 6px;
-  }
-  .ant-tabs-tab-active h4 {
-    color: @primary-color;
-  }
-}
-
-.antd-pro-pages-dashboard-analysis-twoColLayout {
-  .antd-pro-pages-dashboard-analysis-salesCard {
-    height: calc(100% - 24px);
-  }
-  div[class^="ant-col"]:last-child {
-    right: 0\9;
-    height: 100%\9;
-    position: absolute\9;
-  }
-  .ant-row {
-    display: flex;
-    display: block\9;
-    flex-flow: row wrap;
-    position: relative\9;
-  }
-}
-
-.antd-pro-pages-dashboard-analysis-trendText {
-  margin-left: 8px;
-  color: @heading-color;
-}
-
-@media screen and (max-width: @screen-lg) {
-  .antd-pro-pages-dashboard-analysis-salesExtra {
-    display: none;
-  }
-
-  .antd-pro-pages-dashboard-analysis-rankingList {
-    li {
-      span:first-child {
-        margin-right: 8px;
+      &.antd-pro-pages-email-detail-email-detail-mailStatus {
+        border: 1px solid #777;
+        color: #777;
       }
-    }
-  }
-}
-
-@media screen and (max-width: @screen-md) {
-  .antd-pro-pages-dashboard-analysis-rankingTitle {
-    margin-top: 16px;
-  }
-
-  .antd-pro-pages-dashboard-analysis-salesCard
-    .antd-pro-pages-dashboard-analysis-salesBar {
-    padding: 16px;
-  }
-}
-
-@media screen and (max-width: @screen-sm) {
-  .antd-pro-pages-dashboard-analysis-salesExtraWrap {
-    display: none;
-  }
-
-  .antd-pro-pages-dashboard-analysis-salesCard {
-    .ant-tabs-content {
-      padding-top: 30px;
-    }
-  }
-}
-
-/* 
-  Convert to from  src/pages/Dashboard/Monitor.less
- */
-
-.antd-pro-pages-dashboard-monitor-mapChart {
-  padding-top: 24px;
-  height: 452px;
-  text-align: center;
-  img {
-    display: inline-block;
-    max-width: 100%;
-    max-height: 437px;
-  }
-}
-
-.pieCard :global(.pie-stat) {
-  font-size: 24px !important;
-}
-
-@media screen and (max-width: @screen-lg) {
-  .antd-pro-pages-dashboard-monitor-mapChart {
-    height: auto;
-  }
-}
-
-/* 
-  Convert to from  src/pages/Dashboard/Workplace.less
- */
-
-.antd-pro-pages-dashboard-workplace-activitiesList {
-  padding: 0 24px 8px 24px;
-  .antd-pro-pages-dashboard-workplace-username {
-    color: @text-color;
-  }
-  .antd-pro-pages-dashboard-workplace-event {
-    font-weight: normal;
-  }
-}
-
-.antd-pro-pages-dashboard-workplace-pageHeaderContent {
-  display: flex;
-  .antd-pro-pages-dashboard-workplace-avatar {
-    flex: 0 1 72px;
-    margin-bottom: 8px;
-    & > span {
-      border-radius: 72px;
-      display: block;
-      width: 72px;
-      height: 72px;
-    }
-  }
-  .antd-pro-pages-dashboard-workplace-content {
-    position: relative;
-    top: 4px;
-    margin-left: 24px;
-    flex: 1 1 auto;
-    color: @text-color-secondary;
-    line-height: 22px;
-    .antd-pro-pages-dashboard-workplace-contentTitle {
-      font-size: 20px;
-      line-height: 28px;
-      font-weight: 500;
-      color: @heading-color;
-      margin-bottom: 12px;
-    }
-  }
-}
-
-.antd-pro-pages-dashboard-workplace-extraContent {
-  .clearfix();
-  float: right;
-  white-space: nowrap;
-  .antd-pro-pages-dashboard-workplace-statItem {
-    padding: 0 32px;
-    position: relative;
-    display: inline-block;
-    > p:first-child {
-      color: @text-color-secondary;
-      font-size: @font-size-base;
-      line-height: 22px;
-      margin-bottom: 4px;
-    }
-    > p {
-      color: @heading-color;
-      font-size: 30px;
-      line-height: 38px;
-      margin: 0;
-      > span {
-        color: @text-color-secondary;
-        font-size: 20px;
+      &.antd-pro-pages-email-detail-email-detail-mailAssignee {
+        background: #09bad1;
+        border: 1px solid #09bad1;
+        color: #fff;
       }
-    }
-    &:after {
-      background-color: @border-color-split;
-      position: absolute;
-      top: 8px;
-      right: 0;
-      width: 1px;
-      height: 40px;
-      content: "";
-    }
-    &:last-child {
-      padding-right: 0;
-      &:after {
-        display: none;
+
+      i {
+        font-size: 17px;
+        margin-right: 4px;
       }
-    }
-  }
-}
 
-.antd-pro-pages-dashboard-workplace-members {
-  a {
-    display: block;
-    margin: 12px 0;
-    height: 24px;
-    color: @text-color;
-    transition: all 0.3s;
-    .textOverflow();
-    .antd-pro-pages-dashboard-workplace-member {
-      font-size: @font-size-base;
-      line-height: 24px;
-      vertical-align: top;
-      margin-left: 12px;
-    }
-    &:hover {
-      color: @primary-color;
-    }
-  }
-}
-
-.antd-pro-pages-dashboard-workplace-projectList {
-  .ant-card-meta-description {
-    color: @text-color-secondary;
-    height: 44px;
-    line-height: 22px;
-    overflow: hidden;
-  }
-  .antd-pro-pages-dashboard-workplace-cardTitle {
-    font-size: 0;
-    a {
-      color: @heading-color;
-      margin-left: 12px;
-      line-height: 24px;
-      height: 24px;
-      display: inline-block;
-      vertical-align: top;
-      font-size: @font-size-base;
-      &:hover {
-        color: @primary-color;
-      }
-    }
-  }
-  .antd-pro-pages-dashboard-workplace-projectGrid {
-    width: 33.33%;
-  }
-  .antd-pro-pages-dashboard-workplace-projectItemContent {
-    display: flex;
-    margin-top: 8px;
-    overflow: hidden;
-    font-size: 12px;
-    height: 20px;
-    line-height: 20px;
-    .textOverflow();
-    a {
-      color: @text-color-secondary;
-      display: inline-block;
-      flex: 1 1 0;
-      .textOverflow();
-      &:hover {
-        color: @primary-color;
-      }
-    }
-    .antd-pro-pages-dashboard-workplace-datetime {
-      color: @disabled-color;
-      flex: 0 0 auto;
-      float: right;
-    }
-  }
-}
-
-.antd-pro-pages-dashboard-workplace-datetime {
-  color: @disabled-color;
-}
-
-@media screen and (max-width: @screen-xl) and (min-width: @screen-lg) {
-  .antd-pro-pages-dashboard-workplace-activeCard {
-    margin-bottom: 24px;
-  }
-  .antd-pro-pages-dashboard-workplace-members {
-    margin-bottom: 0;
-  }
-  .antd-pro-pages-dashboard-workplace-extraContent {
-    margin-left: -44px;
-    .antd-pro-pages-dashboard-workplace-statItem {
-      padding: 0 16px;
-    }
-  }
-}
-
-@media screen and (max-width: @screen-lg) {
-  .antd-pro-pages-dashboard-workplace-activeCard {
-    margin-bottom: 24px;
-  }
-  .antd-pro-pages-dashboard-workplace-members {
-    margin-bottom: 0;
-  }
-  .antd-pro-pages-dashboard-workplace-extraContent {
-    float: none;
-    margin-right: 0;
-    .antd-pro-pages-dashboard-workplace-statItem {
-      padding: 0 16px;
-      text-align: left;
-      &:after {
-        display: none;
-      }
-    }
-  }
-}
-
-@media screen and (max-width: @screen-md) {
-  .antd-pro-pages-dashboard-workplace-extraContent {
-    margin-left: -16px;
-  }
-  .antd-pro-pages-dashboard-workplace-projectList {
-    .antd-pro-pages-dashboard-workplace-projectGrid {
-      width: 50%;
-    }
-  }
-}
-
-@media screen and (max-width: @screen-sm) {
-  .antd-pro-pages-dashboard-workplace-pageHeaderContent {
-    display: block;
-    .antd-pro-pages-dashboard-workplace-content {
-      margin-left: 0;
-    }
-  }
-  .antd-pro-pages-dashboard-workplace-extraContent {
-    .antd-pro-pages-dashboard-workplace-statItem {
-      float: none;
-    }
-  }
-}
-
-@media screen and (max-width: @screen-xs) {
-  .antd-pro-pages-dashboard-workplace-projectList {
-    .antd-pro-pages-dashboard-workplace-projectGrid {
-      width: 100%;
-    }
-  }
-}
-
-/* 
-  Convert to from  src/pages/Exception/style.less
- */
-.antd-pro-pages-exception-style-trigger {
-  background: "red";
-  :global(.ant-btn) {
-    margin-right: 8px;
-    margin-bottom: 12px;
-  }
-}
-
-/* 
-  Convert to from  src/pages/Forms/StepForm/style.less
- */
-
-.antd-pro-pages-forms-step-form-style-stepForm {
-  margin: 40px auto 0;
-  max-width: 500px;
-}
-
-.antd-pro-pages-forms-step-form-style-stepFormText {
-  margin-bottom: 24px;
-  .ant-form-item-label,
-  .ant-form-item-control {
-    line-height: 22px;
-  }
-}
-
-.antd-pro-pages-forms-step-form-style-result {
-  margin: 0 auto;
-  max-width: 560px;
-  padding: 24px 0 8px;
-}
-
-.antd-pro-pages-forms-step-form-style-desc {
-  padding: 0 56px;
-  color: @text-color-secondary;
-  h3 {
-    font-size: 16px;
-    margin: 0 0 12px 0;
-    color: @text-color-secondary;
-    line-height: 32px;
-  }
-  h4 {
-    margin: 0 0 4px 0;
-    color: @text-color-secondary;
-    font-size: 14px;
-    line-height: 22px;
-  }
-  p {
-    margin-top: 0;
-    margin-bottom: 12px;
-    line-height: 22px;
-  }
-}
-
-@media screen and (max-width: @screen-md) {
-  .antd-pro-pages-forms-step-form-style-desc {
-    padding: 0;
-  }
-}
-
-.antd-pro-pages-forms-step-form-style-information {
-  line-height: 22px;
-  .ant-row:not(:last-child) {
-    margin-bottom: 24px;
-  }
-  .antd-pro-pages-forms-step-form-style-label {
-    color: @heading-color;
-    text-align: right;
-    padding-right: 8px;
-    @media screen and (max-width: @screen-sm) {
-      text-align: left;
-    }
-  }
-}
-
-.antd-pro-pages-forms-step-form-style-money {
-  font-family: "Helvetica Neue", sans-serif;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 14px;
-}
-
-.antd-pro-pages-forms-step-form-style-uppercase {
-  font-size: 12px;
-}
-
-/* 
-  Convert to from  src/pages/Forms/style.less
-*/
-
-.antd-pro-pages-forms-style-card {
-  margin-bottom: 24px;
-}
-
-.antd-pro-pages-forms-style-heading {
-  font-size: 14px;
-  line-height: 22px;
-  margin: 0 0 16px 0;
-}
-
-.steps:global(.ant-steps) {
-  max-width: 750px;
-  margin: 16px auto;
-}
-
-.antd-pro-pages-forms-style-errorIcon {
-  cursor: pointer;
-  color: @error-color;
-  margin-right: 24px;
-  i {
-    margin-right: 4px;
-  }
-}
-
-.antd-pro-pages-forms-style-errorPopover {
-  .ant-popover-inner-content {
-    padding: 0;
-    max-height: 290px;
-    overflow: auto;
-    min-width: 256px;
-  }
-}
-
-.antd-pro-pages-forms-style-errorListItem {
-  list-style: none;
-  border-bottom: 1px solid @border-color-split;
-  padding: 8px 16px;
-  cursor: pointer;
-  transition: all 0.3s;
-  &:hover {
-    background: @primary-1;
-  }
-  &:last-child {
-    border: 0;
-  }
-  .antd-pro-pages-forms-style-errorIcon {
-    color: @error-color;
-    float: left;
-    margin-top: 4px;
-    margin-right: 12px;
-    padding-bottom: 22px;
-  }
-  .antd-pro-pages-forms-style-errorField {
-    font-size: 12px;
-    color: @text-color-secondary;
-    margin-top: 2px;
-  }
-}
-
-.antd-pro-pages-forms-style-editable {
-  td {
-    padding-top: 13px !important;
-    padding-bottom: 12.5px !important;
-  }
-}
-
-// custom footer for fixed footer toolbar
-.antd-pro-pages-forms-style-advancedForm + div {
-  padding-bottom: 64px;
-}
-
-.antd-pro-pages-forms-style-advancedForm {
-  .ant-form .ant-row:last-child .ant-form-item {
-    margin-bottom: 24px;
-  }
-  .ant-table td {
-    transition: none !important;
-  }
-}
-
-.antd-pro-pages-forms-style-optional {
-  color: @text-color-secondary;
-  font-style: normal;
-}
-
-/* 
-  Convert to from  src/pages/List/Applications.less
-*/
-.antd-pro-pages-list-applications-filterCardList {
-  margin-bottom: -24px;
-  .ant-card-meta-content {
-    margin-top: 0;
-  }
-  // disabled white space
-  .ant-card-meta-avatar {
-    font-size: 0;
-  }
-  .ant-card-actions {
-    background: #f7f9fa;
-  }
-  .ant-list .ant-list-item-content-single {
-    max-width: 100%;
-  }
-  .antd-pro-pages-list-applications-cardInfo {
-    .clearfix();
-    margin-top: 16px;
-    margin-left: 40px;
-    & > div {
-      position: relative;
-      text-align: left;
-      float: left;
-      width: 50%;
-      p {
-        line-height: 32px;
-        font-size: 24px;
-        margin: 0;
-      }
-      p:first-child {
-        color: @text-color-secondary;
-        font-size: 12px;
-        line-height: 20px;
-        margin-bottom: 4px;
-      }
-    }
-  }
-}
-
-/* 
-  Convert to from  src/pages/List/Articles.less
- */
-a.antd-pro-pages-list-articles-listItemMetaTitle {
-  color: @heading-color;
-}
-.antd-pro-pages-list-articles-listItemExtra {
-  width: 272px;
-  height: 1px;
-}
-.antd-pro-pages-list-articles-selfTrigger {
-  margin-left: 12px;
-}
-
-@media screen and (max-width: @screen-xs) {
-  .antd-pro-pages-list-articles-selfTrigger {
-    display: block;
-    margin-left: 0;
-  }
-}
-@media screen and (max-width: @screen-md) {
-  .antd-pro-pages-list-articles-selfTrigger {
-    display: block;
-    margin-left: 0;
-  }
-}
-@media screen and (max-width: @screen-lg) {
-  .antd-pro-pages-list-articles-listItemExtra {
-    width: 0;
-    height: 1px;
-  }
-}
-
-/* 
-  Convert to from  src/pages/List/BasicList.less
- */
-
-.antd-pro-pages-list-basic-list-standardList {
-  .ant-card-head {
-    border-bottom: none;
-  }
-  .ant-card-head-title {
-    line-height: 32px;
-    padding: 24px 0;
-  }
-  .ant-card-extra {
-    padding: 24px 0;
-  }
-  .ant-list-pagination {
-    text-align: right;
-    margin-top: 24px;
-  }
-  .ant-avatar-lg {
-    width: 48px;
-    height: 48px;
-    line-height: 48px;
-  }
-  .antd-pro-pages-list-basic-list-headerInfo {
-    position: relative;
-    text-align: center;
-    & > span {
-      color: @text-color-secondary;
-      display: inline-block;
-      font-size: @font-size-base;
-      line-height: 22px;
-      margin-bottom: 4px;
-    }
-    & > p {
-      color: @heading-color;
-      font-size: 24px;
-      line-height: 32px;
-      margin: 0;
-    }
-    & > em {
-      background-color: @border-color-split;
-      position: absolute;
-      height: 56px;
-      width: 1px;
-      top: 0;
-      right: 0;
-    }
-  }
-  .antd-pro-pages-list-basic-list-listContent {
-    font-size: 0;
-    .antd-pro-pages-list-basic-list-listContentItem {
-      color: @text-color-secondary;
-      display: inline-block;
-      vertical-align: middle;
-      font-size: @font-size-base;
-      margin-left: 40px;
-      > span {
-        line-height: 20px;
-      }
-      > p {
-        margin-top: 4px;
-        margin-bottom: 0;
-        line-height: 22px;
-      }
-    }
-  }
-  .antd-pro-pages-list-basic-list-extraContentSearch {
-    margin-left: 16px;
-    width: 272px;
-  }
-}
-
-@media screen and (max-width: @screen-xs) {
-  .antd-pro-pages-list-basic-list-standardList {
-    .ant-list-item-content {
-      display: block;
-      flex: none;
-      width: 100%;
-    }
-    .ant-list-item-action {
-      margin-left: 0;
-    }
-    .antd-pro-pages-list-basic-list-listContent {
-      margin-left: 0;
-      & > div {
-        margin-left: 0;
-      }
-    }
-    .antd-pro-pages-list-basic-list-listCard {
-      .ant-card-head-title {
-        overflow: visible;
-      }
-    }
-  }
-}
-
-@media screen and (max-width: @screen-sm) {
-  .antd-pro-pages-list-basic-list-standardList {
-    .antd-pro-pages-list-basic-list-extraContentSearch {
-      margin-left: 0;
-      width: 100%;
-    }
-    .antd-pro-pages-list-basic-list-headerInfo {
-      margin-bottom: 16px;
-      & > em {
-        display: none;
-      }
-    }
-  }
-}
-
-@media screen and (max-width: @screen-md) {
-  .antd-pro-pages-list-basic-list-standardList {
-    .antd-pro-pages-list-basic-list-listContent {
-      & > div {
-        display: block;
-      }
-      & > div:last-child {
-        top: 0;
-        width: 100%;
-      }
-    }
-  }
-  .antd-pro-pages-list-basic-list-listCard {
-    .ant-radio-group {
-      display: block;
-      margin-bottom: 8px;
-    }
-  }
-}
-
-@media screen and (max-width: @screen-lg) and (min-width: @screen-md) {
-  .antd-pro-pages-list-basic-list-standardList {
-    .antd-pro-pages-list-basic-list-listContent {
-      & > div {
-        display: block;
-      }
-      & > div:last-child {
-        top: 0;
-        width: 100%;
-      }
-    }
-  }
-}
-
-@media screen and (max-width: @screen-xl) {
-  .antd-pro-pages-list-basic-list-standardList {
-    .antd-pro-pages-list-basic-list-listContent {
-      & > div {
-        margin-left: 24px;
-      }
-      & > div:last-child {
-        top: 0;
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 1400px) {
-  .antd-pro-pages-list-basic-list-standardList {
-    .antd-pro-pages-list-basic-list-listContent {
-      text-align: right;
-      & > div:last-child {
-        top: 0;
-      }
-    }
-  }
-}
-
-.antd-pro-pages-list-basic-list-standardListForm {
-  .ant-form-item {
-    margin-bottom: 12px;
-    &:last-child {
-      padding-top: 4px;
-      margin-bottom: 32px;
-    }
-  }
-}
-
-.antd-pro-pages-list-basic-list-formResult {
-  width: 100%;
-  [class^="title"] {
-    margin-bottom: 8px;
-  }
-}
-
-/* 
-  Convert to from  src/pages/List/CardList.less
- */
-
-.antd-pro-pages-list-card-list-cardList {
-  margin-bottom: -24px;
-
-  .antd-pro-pages-list-card-list-card {
-    .ant-card-meta-title {
-      margin-bottom: 12px;
-      & > a {
-        color: @heading-color;
+      .antd-pro-pages-email-detail-email-detail-statusDot {
         display: inline-block;
-        max-width: 100%;
+        width: 11px;
+        height: 11px;
+        margin-right: 4px;
+        border-radius: 50%;
+      }
+
+      .antd-pro-pages-email-detail-email-detail-mailInfoValue {
+        display: inline-block;
       }
     }
-    .ant-card-actions {
-      background: #f7f9fa;
-    }
-    .ant-card-body:hover {
-      .ant-card-meta-title > a {
-        color: @primary-color;
-      }
-    }
-  }
-  .antd-pro-pages-list-card-list-item {
-    height: 64px;
-  }
-  .ant-list .ant-list-item-content-single {
-    max-width: 100%;
   }
 }
 
-.antd-pro-pages-list-card-list-extraImg {
-  margin-top: -60px;
-  text-align: center;
-  width: 195px;
-  img {
+.antd-pro-pages-email-detail-email-detail-mailContentWrap {
+  width: 100%;
+  overflow: hidden;
+  padding: 0 50px;
+  background: #fff;
+
+  .antd-pro-pages-email-detail-email-detail-mailContent {
     width: 100%;
+    overflow: hidden;
+    padding: 20px 0;
+    border-bottom: 1px dashed #bababa;
+    white-space: pre-wrap;
   }
 }
 
-.antd-pro-pages-list-card-list-newButton {
-  background-color: #fff;
-  border-color: @border-color-base;
-  border-radius: @border-radius-sm;
-  color: @text-color-secondary;
+.antd-pro-pages-email-detail-email-detail-mailAttachmentWrap {
   width: 100%;
-  height: 188px;
-}
+  overflow: hidden;
+  padding: 0 50px;
+  background: #fff;
 
-.antd-pro-pages-list-card-list-cardAvatar {
-  width: 48px;
-  height: 48px;
-  border-radius: 48px;
-}
+  .antd-pro-pages-email-detail-email-detail-mailAttachment {
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 0;
 
-.antd-pro-pages-list-card-list-cardDescription {
-  .textOverflowMulti();
-}
-
-.antd-pro-pages-list-card-list-pageHeaderContent {
-  position: relative;
-}
-
-.antd-pro-pages-list-card-list-contentLink {
-  margin-top: 16px;
-  a {
-    margin-right: 32px;
-    img {
-      width: 24px;
-    }
-  }
-  img {
-    vertical-align: middle;
-    margin-right: 8px;
-  }
-}
-
-@media screen and (max-width: @screen-lg) {
-  .antd-pro-pages-list-card-list-contentLink {
-    a {
-      margin-right: 16px;
-    }
-  }
-}
-@media screen and (max-width: @screen-md) {
-  .antd-pro-pages-list-card-list-extraImg {
-    display: none;
-  }
-}
-
-@media screen and (max-width: @screen-sm) {
-  .antd-pro-pages-list-card-list-pageHeaderContent {
-    padding-bottom: 30px;
-  }
-  .antd-pro-pages-list-card-list-contentLink {
-    position: absolute;
-    left: 0;
-    bottom: -4px;
-    width: 1000px;
-    a {
-      margin-right: 16px;
-    }
-    img {
-      margin-right: 4px;
-    }
-  }
-}
-
-/* 
-  Convert to from  src/pages/List/Projects.less
- */
-
-.antd-pro-pages-list-projects-coverCardList {
-  margin-bottom: -24px;
-
-  .antd-pro-pages-list-projects-card {
-    .ant-card-meta-title {
-      margin-bottom: 4px;
-      & > a {
-        color: @heading-color;
+    .antd-pro-pages-email-detail-email-detail-mailAttachmentTitle {
+      span {
         display: inline-block;
-        max-width: 100%;
+        font-weight: bold;
+        margin-left: 4px;
       }
     }
-    .ant-card-meta-description {
-      height: 44px;
-      line-height: 22px;
+
+    .antd-pro-pages-email-detail-email-detail-mailAttachmentList {
+      padding: 10px;
+      border: 1px solid #f1f1f1;
+      margin-top: 10px;
+
+      ul {
+        margin: 0;
+        padding: 0;
+        li {
+          margin: 2px 0;
+        }
+        span {
+          color: #005b8b;
+          display: inline-block;
+          margin-left: 4px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+.antd-pro-pages-email-detail-email-detail-mailActionWrap {
+  width: 100%;
+  overflow: hidden;
+  padding: 0 50px;
+  background: #fff;
+
+  .antd-pro-pages-email-detail-email-detail-mailAction {
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #bababa;
+
+    button {
+      margin-right: 7px;
+    }
+  }
+}
+
+.antd-pro-pages-email-detail-email-detail-commentWrap {
+  width: 100%;
+  overflow: hidden;
+  padding: 0 50px;
+  background: #fff;
+
+  .antd-pro-pages-email-detail-email-detail-commentContainer {
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 0;
+
+    .antd-pro-pages-email-detail-email-detail-commentTitle {
+      float: left;
       overflow: hidden;
+      span {
+        display: inline-block;
+        font-weight: bold;
+        margin-left: 4px;
+      }
     }
 
-    &:hover {
-      .ant-card-meta-title > a {
-        color: @primary-color;
+    .antd-pro-pages-email-detail-email-detail-commentBoxWrap {
+      max-width: 800px;
+      width: 70%;
+      margin: auto;
+      overflow: hidden;
+
+      .antd-pro-pages-email-detail-email-detail-commentListWrap {
+        width: 100%;
+        overflow: hidden;
+
+        .antd-pro-pages-email-detail-email-detail-commentItem {
+          width: 100%;
+          overflow: hidden;
+          margin-bottom: 10px;
+
+          .antd-pro-pages-email-detail-email-detail-commentAvatar {
+            float: left;
+            width: 50px;
+            span {
+              display: block;
+              width: 35px;
+              height: 35px;
+              line-height: 35px;
+              border-radius: 50%;
+              background: #034fe8;
+              color: #fff;
+              text-align: center;
+              font-weight: bold;
+              font-size: 17px;
+              box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.3);
+            }
+          }
+
+          .antd-pro-pages-email-detail-email-detail-commentContentWrap {
+            overflow: hidden;
+            width: calc(100% - 50px);
+            float: left;
+            .antd-pro-pages-email-detail-email-detail-commentHeader {
+              overflow: hidden;
+              span {
+                display: inline-block;
+                font-weight: bold;
+                color: #555;
+              }
+              i {
+                display: inline-block;
+                color: #777;
+                margin-left: 10px;
+                font-size: 12px;
+              }
+            }
+            .antd-pro-pages-email-detail-email-detail-commentBody {
+              overflow: hidden;
+              margin-top: 7px;
+              p {
+                color: #333;
+              }
+            }
+          }
+        }
+      }
+
+      .antd-pro-pages-email-detail-email-detail-commentForm {
+        position: relative;
+        padding: 5px;
+        padding-left: 50px;
+        padding-right: 35px;
+        button {
+          position: absolute;
+          right: 0;
+        }
       }
     }
   }
+}
 
-  .antd-pro-pages-list-projects-cardItemContent {
-    display: flex;
-    margin-top: 16px;
-    margin-bottom: -4px;
-    line-height: 20px;
-    height: 20px;
-    & > span {
-      color: @text-color-secondary;
-      flex: 1;
-      font-size: 12px;
+.antd-pro-pages-email-detail-email-detail-displayBlock {
+  display: block;
+}
+
+.antd-pro-pages-email-detail-email-detail-noneDisplayBlock {
+  display: none;
+}
+
+.antd-pro-pages-email-detail-email-detail-mailAttachmentWrapNoneDisplay {
+  display: none;
+  width: 100%;
+  overflow: hidden;
+  padding: 0 50px;
+  background: #fff;
+
+  .antd-pro-pages-email-detail-email-detail-mailAttachment {
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 0;
+
+    .antd-pro-pages-email-detail-email-detail-mailAttachmentTitle {
+      span {
+        display: inline-block;
+        font-weight: bold;
+        margin-left: 4px;
+      }
     }
-    .antd-pro-pages-list-projects-avatarList {
-      flex: 0 1 auto;
+
+    .antd-pro-pages-email-detail-email-detail-mailAttachmentList {
+      padding: 10px;
+      border: 1px solid #f1f1f1;
+      margin-top: 10px;
+
+      ul {
+        margin: 0;
+        padding: 0;
+        li {
+          margin: 2px 0;
+        }
+        span {
+          color: #005b8b;
+          display: inline-block;
+          margin-left: 4px;
+          cursor: pointer;
+        }
+      }
     }
   }
-  .antd-pro-pages-list-projects-cardList {
-    margin-top: 24px;
+}
+
+.antd-pro-pages-email-detail-email-detail-mailActionWrapNoneDisplay {
+  display: none;
+  width: 100%;
+  overflow: hidden;
+  padding: 0 50px;
+  background: #fff;
+
+  .antd-pro-pages-email-detail-email-detail-mailAction {
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #bababa;
+
+    button {
+      margin-right: 7px;
+    }
   }
-  .ant-list .ant-list-item-content-single {
-    max-width: 100%;
+}
+
+.antd-pro-pages-email-detail-email-detail-commentWrapNoneDisplay {
+  display: none;
+  width: 100%;
+  overflow: hidden;
+  padding: 0 50px;
+  background: #fff;
+
+  .antd-pro-pages-email-detail-email-detail-commentContainer {
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 0;
+
+    .antd-pro-pages-email-detail-email-detail-commentTitle {
+      float: left;
+      overflow: hidden;
+      span {
+        display: inline-block;
+        font-weight: bold;
+        margin-left: 4px;
+      }
+    }
+
+    .antd-pro-pages-email-detail-email-detail-commentBoxWrap {
+      max-width: 800px;
+      width: 70%;
+      margin: auto;
+      overflow: hidden;
+
+      .antd-pro-pages-email-detail-email-detail-commentListWrap {
+        width: 100%;
+        overflow: hidden;
+
+        .antd-pro-pages-email-detail-email-detail-commentItem {
+          width: 100%;
+          overflow: hidden;
+          margin-bottom: 10px;
+
+          .antd-pro-pages-email-detail-email-detail-commentAvatar {
+            float: left;
+            width: 50px;
+            span {
+              display: block;
+              width: 35px;
+              height: 35px;
+              line-height: 35px;
+              border-radius: 50%;
+              background: #034fe8;
+              color: #fff;
+              text-align: center;
+              font-weight: bold;
+              font-size: 17px;
+              box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.3);
+            }
+          }
+
+          .antd-pro-pages-email-detail-email-detail-commentContentWrap {
+            overflow: hidden;
+            width: calc(100% - 50px);
+            float: left;
+            .antd-pro-pages-email-detail-email-detail-commentHeader {
+              overflow: hidden;
+              span {
+                display: inline-block;
+                font-weight: bold;
+                color: #555;
+              }
+              i {
+                display: inline-block;
+                color: #777;
+                margin-left: 10px;
+                font-size: 12px;
+              }
+            }
+            .antd-pro-pages-email-detail-email-detail-commentBody {
+              overflow: hidden;
+              margin-top: 7px;
+              p {
+                color: #333;
+              }
+            }
+          }
+        }
+      }
+
+      .antd-pro-pages-email-detail-email-detail-commentForm {
+        position: relative;
+        padding: 5px;
+        padding-left: 50px;
+        padding-right: 35px;
+        button {
+          position: absolute;
+          right: 0;
+        }
+      }
+    }
+  }
+}
+
+.antd-pro-pages-email-detail-email-detail-mailContentWrapNoneDisplay {
+  height: 172px;
+  width: 100%;
+  overflow: hidden;
+  padding: 0 50px;
+  background: #fff;
+  background-image: linear-gradient(45deg, #f0f2f5 50%, transparent 50%),
+    linear-gradient(-45deg, #f0f2f5 50%, transparent 50%);
+
+  background-position: bottom left, bottom left;
+  background-size: 24px 24px;
+  background-repeat: repeat-x;
+
+  .antd-pro-pages-email-detail-email-detail-mailContent {
+    height: 127px;
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 0;
+    white-space: pre-wrap;
+  }
+}
+
+.antd-pro-pages-email-detail-email-detail-replyBody {
+  margin-top: 9px;
+  display: block;
+}
+
+.antd-pro-pages-email-detail-email-detail-replyBodyNoneDisplay {
+  display: none;
+}
+
+/* 
+  Convert to from  src/pages/EmailList/components/SearchForm/EmailSearch.less
+ */
+.antd-pro-pages-email-list-components-search-form-email-search-searchForm {
+  .antd-pro-pages-email-list-components-search-form-email-search-searchInput {
+    border: none;
+    border-bottom: 1px solid #f1f1f1;
+    border-radius: 0;
+
+    span {
+      border: none;
+    }
+
+    span:focus,
+    span:active {
+      box-shadow: none;
+    }
+  }
+  .antd-pro-pages-email-list-components-search-form-email-search-searchInput:focus,
+  .antd-pro-pages-email-list-components-search-form-email-search-searchInput:active {
+    box-shadow: none;
+    border-bottom: 1px solid #1890ff;
   }
 }
 
 /* 
-  Convert to from  src/pages/List/TableList.less
+  Convert to from  src/pages/EmailList/EmailList.less
  */
 
-.antd-pro-pages-list-table-list-tableList {
-  .antd-pro-pages-list-table-list-tableListOperator {
+.antd-pro-pages-email-list-email-list-tableList {
+  overflow: hidden;
+  .antd-pro-pages-email-list-email-list-tableListOperator {
     margin-bottom: 16px;
     button {
       margin-right: 8px;
     }
   }
+  .antd-pro-pages-email-list-email-list-tableListContent {
+    overflow-x: auto;
+  }
 }
 
-.antd-pro-pages-list-table-list-tableListForm {
+.antd-pro-pages-email-list-email-list-tableList tr[class*="background1"] {
+  background-color: #c7d1d8;
+}
+
+.antd-pro-pages-email-list-email-list-tableList tr[class*="background2"] {
+  background-color: #95aefc;
+}
+
+.antd-pro-pages-email-list-email-list-tableListForm {
   .ant-form-item {
     margin-bottom: 24px;
     margin-right: 0;
@@ -3396,89 +2263,126 @@ a.antd-pro-pages-list-articles-listItemMetaTitle {
   .ant-form-item-control-wrapper {
     flex: 1;
   }
-  .antd-pro-pages-list-table-list-submitButtons {
+  .antd-pro-pages-email-list-email-list-submitButtons {
     display: block;
     white-space: nowrap;
     margin-bottom: 24px;
   }
 }
 
-@media screen and (max-width: @screen-lg) {
-  .tableListForm :global(.ant-form-item) {
-    margin-right: 24px;
+.antd-pro-pages-email-list-email-list-action {
+  cursor: pointer;
+  padding: 0 12px;
+  display: inline-block;
+  transition: all 0.3s;
+  height: 100%;
+  > i {
+    vertical-align: middle;
+    color: #fff;
+  }
+}
+.antd-pro-pages-email-list-email-list-search {
+  margin-left: 1099px;
+  padding: 0 12px;
+  &:hover {
+    background: transparent;
   }
 }
 
-@media screen and (max-width: @screen-md) {
-  .tableListForm :global(.ant-form-item) {
-    margin-right: 8px;
-  }
-}
-
-/* 
-  Convert to from  src/pages/Profile/AdvancedProfile.less
- */
-
-.antd-pro-pages-profile-advanced-profile-headerList {
-  margin-bottom: 4px;
-}
-
-.antd-pro-pages-profile-advanced-profile-tabsCard {
-  .ant-card-head {
-    padding: 0 16px;
-  }
-}
-
-.antd-pro-pages-profile-advanced-profile-noData {
-  color: @disabled-color;
+.antd-pro-pages-email-list-email-list-btnSearch {
+  float: right;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
   text-align: center;
-  line-height: 64px;
-  font-size: 16px;
-  i {
-    font-size: 24px;
-    margin-right: 16px;
-    position: relative;
-    top: 3px;
-  }
 }
 
-.antd-pro-pages-profile-advanced-profile-heading {
-  color: @heading-color;
-  font-size: 20px;
+.antd-pro-pages-email-list-email-list-pageHeader {
+  width: 100%;
+  padding: 15px 15px;
+  overflow: hidden;
+  background: #fff;
+  border-bottom: 1px solid #f1f1f1;
 }
 
-.antd-pro-pages-profile-advanced-profile-stepDescription {
-  font-size: 14px;
+.antd-pro-pages-email-list-email-list-expandChild {
   position: relative;
-  left: 38px;
-  padding-top: 8px;
-  text-align: left;
-
-  > div {
-    margin-top: 8px;
-    margin-bottom: 4px;
-  }
+  top: 36px;
+  left: 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+.antd-pro-pages-email-list-email-list-tableNoRecord {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 10px;
 }
 
-.antd-pro-pages-profile-advanced-profile-textSecondary {
-  color: @text-color-secondary;
+.antd-pro-pages-email-list-email-list-priorityHIGH {
+  color: #f3cb54;
+}
+.antd-pro-pages-email-list-email-list-priorityNORMAL {
+  color: #1890ff;
+}
+.antd-pro-pages-email-list-email-list-priorityAGENT {
+  color: #ff4d4f;
 }
 
-@media screen and (max-width: @screen-sm) {
-  .antd-pro-pages-profile-advanced-profile-stepDescription {
-    left: 8px;
+.antd-pro-pages-email-list-email-list-btnCollapseTree {
+  display: block;
+  height: 20px;
+  width: 20px;
+  margin: 5px auto;
+  background: url("/icons/tree.png") center center;
+  background-size: cover;
+}
+.antd-pro-pages-email-list-email-list-btnCollapseTreeActive {
+  display: block;
+  height: 20px;
+  width: 20px;
+  margin: 5px auto;
+  background: url("/icons/tree-white.png") center center;
+  background-size: cover;
+}
+
+.antd-pro-pages-email-list-email-list-btnCol,
+.antd-pro-pages-email-list-email-list-btnExp {
+  position: absolute;
+  top: 92px;
+  left: 596px;
+}
+.antd-pro-pages-email-list-email-list-btnCol {
+  background-color: #f0f2f5 !important;
+}
+
+/* 
+  Convert to from  src/pages/Exception/style.less
+ */
+.antd-pro-pages-exception-style-trigger {
+  background: "red";
+  :global(.ant-btn) {
+    margin-right: 8px;
+    margin-bottom: 12px;
   }
 }
 
 /* 
-  Convert to from  src/pages/Profile/BasicProfile.less
+  Convert to from  src/pages/SettingFolder/SettingFolder.less
  */
-.antd-pro-pages-profile-basic-profile-title {
-  color: @heading-color;
-  font-size: 16px;
-  font-weight: 500;
-  margin-bottom: 16px;
+.antd-pro-pages-setting-folder-setting-folder-SettingFolderForm {
+  padding: 24px;
+  background: #fbfbfb;
+  border: 1px solid #f1f2f3;
+  border-radius: 6px;
 }
+.antd-pro-pages-setting-folder-setting-folder-SettingFolderForm
+  .antd-pro-pages-setting-folder-setting-folder-ant-form-item {
+  display: flex;
+}
+
+/* 
+  Convert to from  src/pages/SettingTeam/SettingTeam.less
+ */
 
 /* 
   Convert to from  src/pages/User/Login.less
@@ -3592,6 +2496,7 @@ a.antd-pro-pages-list-articles-listItemMetaTitle {
 
 /* 
   Convert to from  src/utils/utils.less
+
 */
 
 .textOverflow() {

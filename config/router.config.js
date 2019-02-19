@@ -7,8 +7,8 @@ export default [
       { path: '/user', redirect: '/user/login' },
       { path: '/user/login', component: './User/Login' },
       { path: '/user/register', component: './User/Register' },
-      { path: '/user/register-result', component: './User/RegisterResult' },
-    ],
+      { path: '/user/register-result', component: './User/RegisterResult' }
+    ]
   },
   // admin
   {
@@ -30,9 +30,45 @@ export default [
         icon: 'team',
         component: './SettingTeam/SettingTeam'
       },
-    ],
-  },
-  
+      {
+        path: '/dashboard',
+        name: 'dashboard',
+        icon: 'dashboard',
+        component: './Dashboard/Dashboard'
+      },
+      {
+        path: '/products',
+        name: 'qlsp',
+        icon: 'appstore',
+        component: './QuanLySanPham/QuanLySanPham'
+      },
+      {
+        path: '/warehouse/import',
+        name: 'qlnk',
+        icon: 'caret-down',
+        component: './QuanLyNhapKho/QuanLyNhapKho'
+      },
+      {
+        path: '/warehouse/export',
+        name: 'qlxk',
+        icon: 'caret-up',
+        component: './QuanLyXuatKho/QuanLyXuatKho'
+      },
+      {
+        path: 'admin/users',
+        name: 'dsnd',
+        icon: 'team',
+        component: './DanhSachNguoiDung/DanhSachNguoiDung'
+      },
+
+      {
+        path: '/admin/warehouses',
+        name: 'dskh',
+        icon: 'dashboard',
+        component: './DanhSachKhoHang/DanhSachKhoHang'
+      }
+    ]
+  }
   // home
   // {
   //   path: '/',
