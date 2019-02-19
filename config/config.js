@@ -3,7 +3,6 @@ import os from 'os';
 import pageRoutes from './router.config';
 import webpackPlugin from './plugin.config';
 import defaultSettings from '../src/defaultSettings';
-import slash from 'slash2';
 
 const plugins = [
   [
@@ -13,14 +12,16 @@ const plugins = [
       dva: {
         hmr: true,
       },
+      targets: {
+        ie: 11,
+      },
       locale: {
         enable: true, // default false
-        default: 'en-US', // default zh-CN
+        default: 'en-US', // default en-US
         baseNavigator: true, // default true, when it is true, will use `navigator.language` overwrite default
       },
       dynamicImport: {
         loadingComponent: './components/PageLoading/index',
-        webpackChunkName: true,
       },
       pwa: {
         workboxPluginMode: 'InjectManifest',
@@ -34,7 +35,7 @@ const plugins = [
               include: ['dva', 'dva/router', 'dva/saga', 'dva/fetch'],
               exclude: ['@babel/runtime'],
             },
-            hardSource: false,
+            hardSource: true,
           }
         : {}),
     },
@@ -55,12 +56,11 @@ if (process.env.APP_TYPE === 'site') {
 export default {
   // add for transfer to umi
   plugins,
-  define: {
-    APP_TYPE: process.env.APP_TYPE || '',
-  },
-  treeShaking: true,
   targets: {
     ie: 11,
+  },
+  define: {
+    APP_TYPE: process.env.APP_TYPE || '',
   },
   // 路由配置
   routes: pageRoutes,
@@ -97,7 +97,7 @@ export default {
       const match = context.resourcePath.match(/src(.*)/);
       if (match && match[1]) {
         const antdProPath = match[1].replace('.less', '');
-        const arr = slash(antdProPath)
+        const arr = antdProPath
           .split('/')
           .map(a => a.replace(/([A-Z])/g, '-$1'))
           .map(a => a.toLowerCase());

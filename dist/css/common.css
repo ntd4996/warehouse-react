@@ -1,0 +1,27 @@
+/*=======OVERRIDE ANT-D======*/
+.ant-card-body {
+    padding: 20px!important;
+}
+
+.pagination-wrap {
+    padding-top: 20px;
+    text-align: right;
+    margin: 0 -8px;
+}
+.email-attachment {
+    font-size: 17px;
+}
+.header-action-wrap {
+    float: right;
+}
+.header-action-wrap button {
+    margin-left: 7px;
+}
+
+.header-title-wrap {
+    float: left;
+}
+
+.ant-form-item {
+    margin-bottom: 8px !important;
+}

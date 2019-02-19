@@ -1,0 +1,132 @@
+.tableList {
+  overflow: hidden;
+  .tableListOperator {
+    margin-bottom: 16px;
+    button {
+      margin-right: 8px;
+    }
+  }
+  .tableListContent {
+    overflow-x: auto;
+  }
+}
+
+.tableList tr[class*='background1'] {
+  background-color: #C7D1D8;
+}
+
+.tableList tr[class*='background2'] {
+  background-color: #95AEFC;
+}
+
+
+.tableListForm {
+  :global {
+    .ant-form-item {
+      margin-bottom: 24px;
+      margin-right: 0;
+      display: flex;
+      > .ant-form-item-label {
+        width: auto;
+        line-height: 32px;
+        padding-right: 8px;
+      }
+      .ant-form-item-control {
+        line-height: 32px;
+      }
+    }
+    .ant-form-item-control-wrapper {
+      flex: 1;
+    }
+  }
+  .submitButtons {
+    display: block;
+    white-space: nowrap;
+    margin-bottom: 24px;
+  }
+}
+
+.action {
+  cursor: pointer;
+  padding: 0 12px;
+  display: inline-block;
+  transition: all 0.3s;
+  height: 100%;
+  > i {
+    vertical-align: middle;
+    color: #fff;
+  }
+
+}
+.search {
+  margin-left: 1099px;
+  padding: 0 12px;
+  &:hover {
+    background: transparent;
+  }
+}
+
+.btnSearch {
+  float: right;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+}
+
+.pageHeader {
+  width: 100%;
+  padding: 15px 15px;
+  overflow: hidden;
+  background: #fff;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.expandChild {
+  position: relative;
+  top: 36px;
+  left: 20px;
+  font-size: 20px;
+  cursor: pointer;
+}
+.tableNoRecord {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.priorityHIGH {
+  color: #f3cb54;
+}
+.priorityNORMAL {
+  color: #1890ff;
+}
+.priorityAGENT {
+  color: #ff4d4f;
+}
+
+.btnCollapseTree {
+  display: block;
+  height: 20px;
+  width: 20px;
+  margin: 5px auto;
+  background: url("/icons/tree.png") center center;
+  background-size: cover;
+}
+.btnCollapseTreeActive {
+  display: block;
+  height: 20px;
+  width: 20px;
+  margin: 5px auto;
+  background: url("/icons/tree-white.png") center center;
+  background-size: cover;
+}
+
+.btnCol, .btnExp {
+  position: absolute;
+  top: 92px;
+  left: 596px;
+}
+.btnCol {
+  background-color: #f0f2f5 !important;
+}

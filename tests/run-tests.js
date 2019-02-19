@@ -24,11 +24,7 @@ startServer.on('exit', () => {
 console.log('Starting development server for e2e tests...');
 startServer.stdout.on('data', data => {
   console.log(data.toString());
-  // hack code , wait umi
-  if (
-    (!once && data.toString().indexOf('Compiled successfully') >= 0) ||
-    data.toString().indexOf('Theme generated successfully') >= 0
-  ) {
+  if (!once && data.toString().indexOf('Compiled successfully') >= 0) {
     // eslint-disable-next-line
     once = true;
     console.log('Development server is started, ready to run tests.');

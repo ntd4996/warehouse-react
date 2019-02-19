@@ -1,6 +1,7 @@
 @import '~antd/lib/style/themes/default.less';
 
 @nav-header-height: @layout-header-height;
+@pro-header-hover-bg: rgba(0, 0, 0, 0.025);
 
 .logo {
   height: @nav-header-height;
@@ -88,9 +89,18 @@
     transition: opacity 0.3s @ease-in-out, width 0.3s @ease-in-out;
     opacity: 1;
   }
-  .ant-drawer-left {
-    .ant-drawer-body {
-      padding: 0;
-    }
+}
+
+.trigger {
+  position: absolute;
+  right: 15px;
+  top: 49px;
+  font-size: 20px;
+  height: @layout-header-height;
+  cursor: pointer;
+  transition: all 0.3s, padding 0s;
+  padding: ~'calc((@{layout-header-height} - 20px) / 2)' 24px;
+  &:hover {
+    background: @pro-header-hover-bg;
   }
 }

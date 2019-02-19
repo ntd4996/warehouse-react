@@ -68,6 +68,14 @@ class HeaderView extends PureComponent {
       router.push('/account/settings/base');
       return;
     }
+    if (key === 'teamSettings') {
+      router.push('/setting/team');
+      return;
+    }
+    if (key === 'folderSettings') {
+      router.push('/setting/folder');
+      return;
+    }
     if (key === 'logout') {
       dispatch({
         type: 'login/logout',
@@ -153,9 +161,7 @@ class HeaderView extends PureComponent {
 export default connect(({ user, global, setting, loading }) => ({
   currentUser: user.currentUser,
   collapsed: global.collapsed,
-  fetchingMoreNotices: loading.effects['global/fetchMoreNotices'],
   fetchingNotices: loading.effects['global/fetchNotices'],
-  loadedAllNotices: global.loadedAllNotices,
   notices: global.notices,
   setting,
 }))(HeaderView);

@@ -1,0 +1,305 @@
+.header.ant-layout-header {
+    background: #fff;
+    padding: 0 25px;
+    box-shadow: 0 1px 15px 1px rgba(69,65,78,0.15);
+    z-index: 100;
+    width: 100%;
+    position: fixed;
+}
+
+.header-left-wrap {
+    min-width: 250px;
+    float: left;
+}
+
+.header-search-box-wrap {
+    float: left;
+}
+
+.search-box.focused {
+    transition: 0.3s;
+    width: 500px;
+}
+
+.btn-toggle-menu {
+    font-size: 32px;
+    height: 45px;
+    line-height: 43px;
+    float: left;
+    width: 45px;
+    margin: 9px 12px;
+    border-radius: 50%;
+    transition: 0.2s;
+}
+.btn-toggle-menu:hover {
+    background: #f1f1f1;
+}
+
+.btn-toggle-menu i {
+    cursor: pointer;
+}
+
+.container-wrap {
+    margin-top: 64px;
+    min-height: calc(100vh - 105px) !important;
+}
+
+.layout-container {
+    min-height: calc(100vh - 70px);
+    background: #fff;
+    padding: 20px;
+}
+
+.sidebar.ant-layout-sider {
+    background: #fff;
+    margin: 20px 0 20px 20px;
+    box-shadow: 0 1px 15px 1px rgba(69,65,78,0.01);
+}
+
+.sidebar .ant-menu {
+    background: #fafafa;
+}
+
+.sidebar .ant-menu-item {
+    border-radius: 0 25px 25px 0;
+}
+
+.sidebar .ant-menu-item-selected:after {
+    display: none;
+}
+
+.header-logo {
+    float: left;
+    font-size: 25px;
+    color: #777;
+    padding-left: 30px;
+    width: 220px;
+    user-select: none;
+    margin: 0;
+    background: url("/images/warehouse.svg") left 11px no-repeat;
+    background-size: 40px;
+    cursor: pointer;
+    margin-left: 22px;
+}
+
+.header-logo span {
+    display: inline-block;
+    padding: 0 10px;
+    font-size: 25px;
+}
+
+.header-right-wrap {
+    float: right;
+    height: 64px;
+}
+
+.account-menu-wrap {
+    display: inline-block;
+    height: 100%;
+    float: left;
+    line-height: 0;
+    padding-top: 11px;
+    margin: 0 10px;
+}
+
+.avatar {
+    border: 1px solid #22b9ff;
+    cursor: pointer;
+    margin: 16px 0;
+}
+.avatar.ant-avatar {
+    line-height: 30px;
+    font-size: 25px;
+    border: none;
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0,0.07) !important;
+}
+
+.account-menu {
+    width: 200px;
+}
+
+.account-menu span {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.notification-icon-wrap {
+    display: inline-block;
+    height: 100%;
+    margin: 0 10px;
+    float: left;
+    padding: 14px 0;
+}
+
+.notification-icon-wrap .ant-badge {
+    vertical-align: top;
+}
+
+.notification-icon {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    line-height: 30px;
+    font-size: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    vertical-align: top;
+    color: #22b9ff;
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0,0.07) !important;
+    border: 1px solid #f1f1f1;
+}
+
+.change-language-icon-wrap {
+    display: inline-block;
+    height: 100%;
+    margin: 0 10px;
+    float: left;
+    padding: 14px 0;
+    margin-right: 0;
+}
+
+.change-language-icon {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    line-height: 30px;
+    font-size: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    vertical-align: top;
+    color: #22b9ff;
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0,0.07) !important;
+    border: 1px solid #f1f1f1;
+}
+
+.footer-wrap {
+    text-align: center;
+    font-size: 13px;
+    width: 100%;
+    padding-bottom: 10px;
+}
+.footer-wrap span {
+    display: block;
+    line-height: 20px;
+    color: #999;
+}
+.layout-main-space {
+    min-height: calc(100vh - 145px);
+}
+
+.team-nav {
+    width: 80px;
+    float: left;
+    text-align: center;
+    background: #fafafa;
+    height: 100%;
+    border-right: 1px solid #f1f1f1;
+}
+.team-nav-title {
+    display: block;
+    font-size: 12px;
+    color: #999;
+    text-align: center;
+    padding: 15px 0;
+}
+
+.team-nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.team-nav ul li {
+    margin-bottom: 15px;
+}
+
+.folder-tree {
+    width: calc(100% - 80px);
+    float: left;
+    overflow: hidden;
+}
+
+.folder-tree .ant-tree li {
+    padding: 1px 0;
+}
+
+.folder-tree .ant-tree li span.ant-tree-iconEle {
+    height: 35px;
+    line-height: 35px;
+}
+
+.folder-tree .ant-tree li .ant-tree-node-content-wrapper {
+    height: 35px;
+    line-height: 35px;
+}
+
+.folder-tree .ant-tree.ant-tree-directory > li span.ant-tree-node-content-wrapper:before,
+.folder-tree .ant-tree.ant-tree-directory .ant-tree-child-tree > li span.ant-tree-node-content-wrapper:before {
+    height: 35px;
+    border-radius: 20px;
+}
+
+.folder-tree .ant-tree.ant-tree-directory > li.ant-tree-treenode-selected > span.ant-tree-node-content-wrapper:before,
+.folder-tree .ant-tree.ant-tree-directory .ant-tree-child-tree > li.ant-tree-treenode-selected > span.ant-tree-node-content-wrapper:before {
+    box-shadow: 0 1px 15px 1px rgba(69,65,78,0.1);
+}
+
+.folder-tree .ant-tree li span.ant-tree-iconEle {
+    height: 35px;
+    line-height: 35px;
+}
+
+.folder-tree .ant-tree li span.ant-tree-switcher {
+    line-height: 40px;
+    height: 35px;
+    text-align: right;
+}
+
+.folder-tree .ant-tree-switcher-icon {
+    font-size: 18px!important;
+}
+
+.folder-tree-header {
+    padding: 15px;
+    text-align: center;
+    background: #fafafa;
+    min-height: 54px;
+}
+.folder-tree-header h3 {
+    text-align: center;
+    margin: 0;
+}
+.folder-tree-container {
+    width: 100%;
+    padding: 10px;
+}
+
+.page-header-wrap {
+    width: 100%;
+    padding: 7px 0;
+    overflow: hidden;
+}
+.page-header-detail {
+    float: left;
+    overflow: hidden;
+}
+.page-header-detail h3 {
+    font-size: 17px;
+    margin: 0;
+    line-height: 40px;
+}
+.page-header-breadcrumb {
+    float: left;
+    overflow: hidden;
+    line-height: 30px;
+}
+.page-header-breadcrumb.ant-breadcrumb {
+    padding-left: 30px;
+    margin-left: 30px;
+    border-left: 1px solid #e2e5ec;
+    line-height: 40px;
+}
+.page-content-wrap {
+    box-shadow: 0 1px 15px 1px rgba(69,65,78,0.01);
+    min-height: calc(100vh - 145px);
+    background: #fff;
+}

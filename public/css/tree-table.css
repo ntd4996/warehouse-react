@@ -1,0 +1,145 @@
+.tree-table-wrap {
+    width: 100%;
+    overflow: hidden;
+    min-width: 900px;
+}
+
+.tree-table {
+    border: 1px solid #f1f1f1;
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+}
+.tree-table th {
+    color: #333;
+    text-align: center;
+    padding: 10px 0;
+    background: #fafafa;
+    font-size: 13px;
+    border: 1px solid #f1f1f1;
+}
+.tree-table td {
+    border: 1px solid #f1f1f1;
+    font-size: 14px;
+    color: #333;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    background: #fff;
+    position: relative;
+    z-index: 1;
+}
+
+.tree-table-space-block {
+    border: 1px solid transparent;
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    line-height: 16px;
+    text-align: center;
+    vertical-align: top;
+    font-size: 19px;
+    position: relative;
+    box-sizing: border-box;
+    margin-top: 10px;
+    border-radius: 50%;
+    z-index: 1;
+}
+.tree-table tr td .tree-table-space-block:first-child {
+    margin-left: 7px;
+}
+.tree-table-space-block.btn-toggle {
+    border: 1px solid #d9d9d9;
+    position: relative;
+    cursor: pointer;
+    width: 22px;
+    height: 22px;
+    background: #d9d9d9;
+    z-index: 10;
+}
+.tree-table-space-block.btn-toggle.is-close {
+    background: #40a9ff;
+    border: 1px solid transparent;
+    color: #fff;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+.tree-table-space-block:before {
+    position: absolute;
+    content: "";
+    width: 1px;
+    height: 41px;
+    background: #d9d9d9;
+    left: 33px;
+    top: -32px;
+}
+
+.tree-table-space-block.first:before {
+    height: 32px;
+    top: -23px;
+}
+
+.tree-table-space-block.btn-toggle:before {
+    display: none;
+}
+.tree-table-space-block.last-block:before {
+    display: none;
+}
+
+.tree-table-space-block.last-block:after {
+    position: absolute;
+    content: "";
+    width: 12px;
+    height: 1px;
+    background: #d9d9d9;
+    top: 50%;
+    margin-top: -2px;
+    left: 12px;
+}
+.tree-table-space-block.btn-toggle:after {
+    display: none;
+}
+.tree-table tr td .tree-table-space-block:first-child:after {
+    display: none;
+}
+
+.tree-table-td-content {
+    display: inline-block;
+    padding: 7px;
+}
+
+.tree-table-space-block.hidden {
+    visibility: hidden;
+}
+.tree-table tbody tr {
+    background: #fff;
+    cursor: pointer;
+}
+.tree-table tbody tr:hover td{
+    background: #fafafa;
+}
+.tree-table tr td.display-tree-line {
+    overflow: initial;
+}
+.tree-table tr td.display-tree-line .tree-table-space-block:first-child {
+    margin-left: -20px;
+}
+/*==========EMAIL LIST==========*/
+.email-list-subject-content {
+    display: inline-block;
+}
+.tree-table tbody tr:hover td .email-list-subject-content{
+    background: #fafafa;
+}
+.email-priority {
+    display: inline-block;
+    margin-right: 10px;
+    margin-left: 7px;
+}
+.email-attachment {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.custom-td-content {
+    display: block !important;
+}

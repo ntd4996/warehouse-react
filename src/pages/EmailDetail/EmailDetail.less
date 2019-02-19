@@ -1,0 +1,513 @@
+@import '~antd/lib/style/themes/default.less';
+
+.mailDetailHeaderWrap {
+  border-bottom: 1px solid #bababa;
+  background: #fff;
+  padding: 20px;
+  padding-bottom: 25px;
+
+  .mailDetailHeader {
+    width: 100%;
+    height: auto;
+
+    .mailPriority {
+      width: 50px;
+      text-align: center;
+      float: left;
+      font-size: 25px;
+
+      .priorityHIGH {
+        color: #f3cb54;
+      }
+      .priorityNORMAL {
+        color: #1890ff;
+      }
+      .priorityAGENT {
+        color: #ff4d4f;
+      }
+    }
+
+    .mailSubject {
+      float: left;
+      width: calc(100% - 280px);
+
+      h3 {
+        line-height: 35px;
+        margin: 0;
+        font-size: 20px;
+        color: #777;
+      }
+    }
+
+    .headerAction {
+      width: 230px;
+      float: right;
+
+      ul {
+        margin: 0;
+        padding: 0;
+        float: right;
+      }
+
+      ul li {
+        float: left;
+        margin-left: 10px;
+      }
+    }
+  }
+
+
+  .mailInvolveInfo {
+    padding-left: 50px;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    .mailAddressWrap {
+      .mailFrom {
+        font-weight: bold;
+        color: #444;
+      }
+
+      .toLabel {
+        color: #777;
+        margin-left: 5px;
+      }
+
+      .mailTo {
+        font-weight: bold;
+        color: #444;
+        margin-left: 5px;
+      }
+
+      .btnShowMore {
+        font-weight: bold;
+        color: #444;
+        margin-left: 4px;
+        display: inline-block;
+        padding: 0 5px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .mailInfoWrap {
+    padding-left: 50px;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 15px;
+    overflow: hidden;
+
+    .mailInfoItem {
+      float: left;
+      padding: 3px 10px;
+      border-radius: 3px;
+      display: inline-block;
+      margin-right: 14px;
+      cursor: default;
+
+      &.mailFolder {
+        background: #EBA300;
+        border: 1px solid #EBA300;
+        color: #fff;
+      }
+      &.mailStatus {
+        border: 1px solid #777;
+        color: #777;
+      }
+      &.mailAssignee {
+        background: #09BAD1;
+        border: 1px solid #09BAD1;
+        color: #fff;
+      }
+
+      i {
+        font-size: 17px;
+        margin-right: 4px;
+      }
+
+      .statusDot {
+        display: inline-block;
+        width: 11px;
+        height: 11px;
+        margin-right: 4px;
+        border-radius: 50%;
+      }
+
+      .mailInfoValue {
+        display: inline-block;
+      }
+    }
+  }
+}
+
+.mailContentWrap {
+  width: 100%;
+  overflow: hidden;
+  padding: 0 50px;
+  background: #fff;
+
+  .mailContent {
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 0;
+    border-bottom: 1px dashed #bababa;
+    white-space: pre-wrap;
+  }
+}
+
+.mailAttachmentWrap {
+  width: 100%;
+  overflow: hidden;
+  padding: 0 50px;
+  background: #fff;
+
+  .mailAttachment {
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 0;
+
+    .mailAttachmentTitle {
+      span {
+        display: inline-block;
+        font-weight: bold;
+        margin-left: 4px;
+      }
+    }
+
+    .mailAttachmentList {
+      padding: 10px;
+      border: 1px solid #f1f1f1;
+      margin-top: 10px;
+
+      ul {
+        margin: 0;
+        padding: 0;
+        li {
+          margin: 2px 0;
+        }
+        span {
+          color: #005B8B;
+          display: inline-block;
+          margin-left: 4px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+.mailActionWrap {
+  width: 100%;
+  overflow: hidden;
+  padding: 0 50px;
+  background: #fff;
+
+  .mailAction {
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #bababa;
+
+    button {
+      margin-right: 7px;
+    }
+  }
+}
+
+.commentWrap {
+  width: 100%;
+  overflow: hidden;
+  padding: 0 50px;
+  background: #fff;
+
+  .commentContainer {
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 0;
+
+    .commentTitle {
+      float: left;
+      overflow: hidden;
+      span {
+        display: inline-block;
+        font-weight: bold;
+        margin-left: 4px;
+      }
+    }
+
+    .commentBoxWrap {
+      max-width: 800px;
+      width: 70%;
+      margin: auto;
+      overflow: hidden;
+
+      .commentListWrap {
+        width: 100%;
+        overflow: hidden;
+
+        .commentItem {
+          width: 100%;
+          overflow: hidden;
+          margin-bottom: 10px;
+
+          .commentAvatar {
+            float: left;
+            width: 50px;
+            span {
+              display: block;
+              width: 35px;
+              height: 35px;
+              line-height: 35px;
+              border-radius: 50%;
+              background: #034FE8;
+              color: #fff;
+              text-align: center;
+              font-weight: bold;
+              font-size: 17px;
+              box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.3);
+            }
+          }
+
+          .commentContentWrap {
+            overflow: hidden;
+            width: calc(100% - 50px);
+            float: left;
+            .commentHeader {
+              overflow: hidden;
+              span {
+                display: inline-block;
+                font-weight: bold;
+                color: #555;
+              }
+              i {
+                display: inline-block;
+                color: #777;
+                margin-left: 10px;
+                font-size: 12px;
+              }
+            }
+            .commentBody {
+              overflow: hidden;
+              margin-top: 7px;
+              p {
+                color: #333;
+              }
+            }
+          }
+        }
+      }
+
+      .commentForm {
+        position: relative;
+        padding: 5px;
+        padding-left: 50px;
+        padding-right: 35px;
+        button {
+          position: absolute;
+          right: 0;
+        }
+      }
+    }
+  }
+}
+
+.displayBlock{
+  display: block;
+}
+
+.noneDisplayBlock {
+  display: none;
+}
+
+.mailAttachmentWrapNoneDisplay {
+  display: none;
+  width: 100%;
+  overflow: hidden;
+  padding: 0 50px;
+  background: #fff;
+
+  .mailAttachment {
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 0;
+
+    .mailAttachmentTitle {
+      span {
+        display: inline-block;
+        font-weight: bold;
+        margin-left: 4px;
+      }
+    }
+
+    .mailAttachmentList {
+      padding: 10px;
+      border: 1px solid #f1f1f1;
+      margin-top: 10px;
+
+      ul {
+        margin: 0;
+        padding: 0;
+        li {
+          margin: 2px 0;
+        }
+        span {
+          color: #005B8B;
+          display: inline-block;
+          margin-left: 4px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+.mailActionWrapNoneDisplay {
+  display: none;
+  width: 100%;
+  overflow: hidden;
+  padding: 0 50px;
+  background: #fff;
+
+  .mailAction {
+    width: 100%;
+    overflow: hidden;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #bababa;
+
+    button {
+      margin-right: 7px;
+    }
+  }
+}
+
+.commentWrapNoneDisplay {
+  display: none;
+  width: 100%;
+  overflow: hidden;
+  padding: 0 50px;
+  background: #fff;
+
+  .commentContainer {
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 0;
+
+    .commentTitle {
+      float: left;
+      overflow: hidden;
+      span {
+        display: inline-block;
+        font-weight: bold;
+        margin-left: 4px;
+      }
+    }
+
+    .commentBoxWrap {
+      max-width: 800px;
+      width: 70%;
+      margin: auto;
+      overflow: hidden;
+
+      .commentListWrap {
+        width: 100%;
+        overflow: hidden;
+
+        .commentItem {
+          width: 100%;
+          overflow: hidden;
+          margin-bottom: 10px;
+
+          .commentAvatar {
+            float: left;
+            width: 50px;
+            span {
+              display: block;
+              width: 35px;
+              height: 35px;
+              line-height: 35px;
+              border-radius: 50%;
+              background: #034FE8;
+              color: #fff;
+              text-align: center;
+              font-weight: bold;
+              font-size: 17px;
+              box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.3);
+            }
+          }
+
+          .commentContentWrap {
+            overflow: hidden;
+            width: calc(100% - 50px);
+            float: left;
+            .commentHeader {
+              overflow: hidden;
+              span {
+                display: inline-block;
+                font-weight: bold;
+                color: #555;
+              }
+              i {
+                display: inline-block;
+                color: #777;
+                margin-left: 10px;
+                font-size: 12px;
+              }
+            }
+            .commentBody {
+              overflow: hidden;
+              margin-top: 7px;
+              p {
+                color: #333;
+              }
+            }
+          }
+        }
+      }
+
+      .commentForm {
+        position: relative;
+        padding: 5px;
+        padding-left: 50px;
+        padding-right: 35px;
+        button {
+          position: absolute;
+          right: 0;
+        }
+      }
+    }
+  }
+}
+
+.mailContentWrapNoneDisplay {
+  height: 172px;
+  width: 100%;
+  overflow: hidden;
+  padding: 0 50px;
+  background: #fff;
+  background-image:
+    linear-gradient(45deg, #f0f2f5 50%, transparent 50%),
+    linear-gradient(-45deg, #f0f2f5 50%, transparent 50%);
+
+  background-position:
+    bottom left, bottom left;
+  background-size: 24px 24px;
+  background-repeat: repeat-x;
+
+  .mailContent {
+    height: 127px;
+    width: 100%;
+    overflow: hidden;
+    padding: 20px 0;
+    white-space: pre-wrap;
+  }
+}
+
+.replyBody{
+  margin-top: 9px;
+  display: block
+}
+
+.replyBodyNoneDisplay{
+  display: none
+}

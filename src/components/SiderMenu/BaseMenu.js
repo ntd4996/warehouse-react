@@ -26,7 +26,7 @@ const getIcon = icon => {
 export default class BaseMenu extends PureComponent {
   /**
    * 获得菜单子节点
-   * @memberof SiderMenu
+   * @memberof SiderFolder
    */
   getNavMenuItems = (menusData, parent) => {
     if (!menusData) {
@@ -75,7 +75,7 @@ export default class BaseMenu extends PureComponent {
   /**
    * 判断是否是http链接.返回 Link 或 a
    * Judge whether it is http link.return a or Link
-   * @memberof SiderMenu
+   * @memberof SiderFolder
    */
   getMenuItemPath = item => {
     const { name } = item;

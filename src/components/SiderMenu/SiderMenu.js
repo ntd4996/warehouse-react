@@ -1,5 +1,5 @@
 import React, { PureComponent, Suspense } from 'react';
-import { Layout } from 'antd';
+import { Layout, Icon } from 'antd';
 import classNames from 'classnames';
 import Link from 'umi/link';
 import styles from './index.less';
@@ -68,7 +68,7 @@ export default class SiderMenu extends PureComponent {
         <div className={styles.logo} id="logo">
           <Link to="/">
             <img src={logo} alt="logo" />
-            <h1>Ant Design Pro</h1>
+            <h1>Warehouse</h1>
           </Link>
         </div>
         <Suspense fallback={<PageLoading />}>

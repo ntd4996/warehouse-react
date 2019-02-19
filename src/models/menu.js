@@ -2,7 +2,6 @@ import memoizeOne from 'memoize-one';
 import isEqual from 'lodash/isEqual';
 import { formatMessage } from 'umi/locale';
 import Authorized from '@/utils/Authorized';
-import { menu } from '../defaultSettings';
 
 const { check } = Authorized;
 
@@ -20,14 +19,10 @@ function formatter(data, parentAuthority, parentName) {
       } else {
         locale = `menu.${item.name}`;
       }
-      // if enableMenuLocale use item.name,
-      // close menu international
-      const name = menu.disableLocal
-        ? item.name
-        : formatMessage({ id: locale, defaultMessage: item.name });
+
       const result = {
         ...item,
-        name,
+        name: formatMessage({ id: locale, defaultMessage: item.name }),
         locale,
         authority: item.authority || parentAuthority,
       };

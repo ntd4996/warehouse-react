@@ -2,26 +2,31 @@ import { parse } from 'url';
 
 // mock tableListDataSource
 let tableListDataSource = [];
-for (let i = 0; i < 46; i += 1) {
+for (let i = 1; i < 10; i += 1) {
   tableListDataSource.push({
     key: i,
-    disabled: i % 6 === 0,
-    href: 'https://ant.design',
-    avatar: [
-      'https://gw.alipayobjects.com/zos/rmsportal/eeHMaZBwmTvLdIwMfBpg.png',
-      'https://gw.alipayobjects.com/zos/rmsportal/udxAbMEhpwthVVcjLXik.png',
-    ][i % 2],
-    name: `TradeCode ${i}`,
-    title: `一个任务名称 ${i}`,
-    owner: '曲丽丽',
-    desc: '这是一段描述',
+    name: `${i}`,
+    title: `Team ${i}`,
+    desc: `This Team Representative for description follow Team ${i}`,
     callNo: Math.floor(Math.random() * 1000),
-    status: Math.floor(Math.random() * 10) % 4,
+    status: 'Enabled',
     updatedAt: new Date(`2017-07-${Math.floor(i / 2) + 1}`),
     createdAt: new Date(`2017-07-${Math.floor(i / 2) + 1}`),
     progress: Math.ceil(Math.random() * 100),
   });
 }
+
+tableListDataSource.push({
+  key: 10,
+  name: `10`,
+  title: `Team 10`,
+  desc: 'This Team Representative for description follow Team 10',
+  callNo: Math.floor(Math.random() * 1000),
+  status: 'Disabled',
+  updatedAt: new Date(`2017-07-${Math.floor(10 / 2) + 1}`),
+  createdAt: new Date(`2017-07-${Math.floor(10 / 2) + 1}`),
+  progress: Math.ceil(Math.random() * 100),
+});
 
 function getRule(req, res, u) {
   let url = u;
@@ -98,9 +103,8 @@ function postRule(req, res, u, b) {
           'https://gw.alipayobjects.com/zos/rmsportal/eeHMaZBwmTvLdIwMfBpg.png',
           'https://gw.alipayobjects.com/zos/rmsportal/udxAbMEhpwthVVcjLXik.png',
         ][i % 2],
-        name: `TradeCode ${i}`,
-        title: `一个任务名称 ${i}`,
-        owner: '曲丽丽',
+        name: `${i}`,
+        title: `Team ${i}`,
         desc,
         callNo: Math.floor(Math.random() * 1000),
         status: Math.floor(Math.random() * 10) % 2,
@@ -122,7 +126,14 @@ function postRule(req, res, u, b) {
       break;
   }
 
-  return getRule(req, res, u);
+  const result = {
+    list: tableListDataSource,
+    pagination: {
+      total: tableListDataSource.length,
+    },
+  };
+
+  return res.json(result);
 }
 
 export default {

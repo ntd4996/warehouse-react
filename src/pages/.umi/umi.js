@@ -11,7 +11,6 @@ window.g_plugins.init({
   validKeys: ['patchRoutes','render','rootContainer','modifyRouteProps','onRouteChange','dva',],
 });
 window.g_plugins.use(require('../../../node_modules/umi-plugin-dva/lib/runtime'));
-window.g_plugins.use(require('@/app'));
 
 require('@tmp/initDva');
 

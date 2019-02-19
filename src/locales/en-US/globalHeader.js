@@ -13,6 +13,4 @@ export default {
   'component.noticeIcon.clear': 'Clear',
   'component.noticeIcon.cleared': 'Cleared',
   'component.noticeIcon.empty': 'No notifications',
-  'component.noticeIcon.loaded': 'Loaded',
-  'component.noticeIcon.loading-more': 'Loading more',
 };

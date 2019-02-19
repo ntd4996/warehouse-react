@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import { Layout } from 'antd';
+import { Layout, Icon } from 'antd';
 import DocumentTitle from 'react-document-title';
 import isEqual from 'lodash/isEqual';
 import memoizeOne from 'memoize-one';
@@ -16,13 +16,8 @@ import Header from './Header';
 import Context from './MenuContext';
 import Exception403 from '../pages/Exception/403';
 import PageLoading from '@/components/PageLoading';
-import SiderMenu from '@/components/SiderMenu';
-import { menu, title } from '../defaultSettings';
-
+import SiderFolder from '@/components/SiderFolder';
 import styles from './BasicLayout.less';
-
-// lazy load SettingDrawer
-const SettingDrawer = React.lazy(() => import('@/components/SettingDrawer'));
 
 const { Content } = Layout;
 
@@ -51,12 +46,24 @@ const query = {
   },
 };
 
+@connect(({ menuTeams, loading }) => ({
+  menuTeams,
+  loading: loading.effects['menuTeams/fetch'],
+}))
 class BasicLayout extends React.PureComponent {
   constructor(props) {
     super(props);
     this.getPageTitle = memoizeOne(this.getPageTitle);
     this.matchParamsPath = memoizeOne(this.matchParamsPath, isEqual);
   }
+
+  state = {
+    onClickTeam: false,
+    dataClickTeam: {
+      id: '',
+      name: ''
+    }
+  };
 
   componentDidMount() {
     const {
@@ -72,6 +79,9 @@ class BasicLayout extends React.PureComponent {
     dispatch({
       type: 'menu/getMenuData',
       payload: { routes, authority },
+    });
+    dispatch({
+      type: 'menuTeams/fetch'
     });
   }
 
@@ -100,7 +110,7 @@ class BasicLayout extends React.PureComponent {
   getRouterAuthority = (pathname, routeData) => {
     let routeAuthority = ['noAuthority'];
     const getAuthority = (key, routes) => {
-      routes.forEach(route => {
+      routes.map(route => {
         if (route.path && pathToRegexp(route.path).test(key)) {
           routeAuthority = route.authority;
         } else if (route.routes) {
@@ -117,16 +127,14 @@ class BasicLayout extends React.PureComponent {
     const currRouterData = this.matchParamsPath(pathname, breadcrumbNameMap);
 
     if (!currRouterData) {
-      return title;
+      return 'KWMC - Kanda Web Mail Checker';
     }
-    const pageName = menu.disableLocal
-      ? currRouterData.name
-      : formatMessage({
-          id: currRouterData.locale || currRouterData.name,
-          defaultMessage: currRouterData.name,
-        });
+    const pageName = formatMessage({
+      id: currRouterData.locale || currRouterData.name,
+      defaultMessage: currRouterData.name,
+    });
 
-    return `${pageName} - ${title}`;
+    return `KWMC - Kanda Web Mail Checker`;
   };
 
   getLayoutStyle = () => {
@@ -147,13 +155,20 @@ class BasicLayout extends React.PureComponent {
     });
   };
 
-  renderSettingDrawer = () => {
-    // Do not render SettingDrawer in production
-    // unless it is deployed in preview.pro.ant.design as demo
-    if (process.env.NODE_ENV === 'production' && APP_TYPE !== 'site') {
-      return null;
-    }
-    return <SettingDrawer />;
+  handleTeamClick = (key, name) => {
+    this.setState({
+      onClickTeam: true,
+      dataClickTeam: {
+        id: key,
+        name: name
+      }
+    });
+    const { dispatch } = this.props;
+    dispatch({
+      type: 'foldersTeam/fetch',
+      payload: key,
+    });
+    // console.log('key ' + key + name);
   };
 
   render() {
@@ -167,20 +182,47 @@ class BasicLayout extends React.PureComponent {
       breadcrumbNameMap,
       route: { routes },
       fixedHeader,
+      collapsed
     } = this.props;
+
+    const {
+      menuTeams,
+      loading
+    } = this.props;
+
+    const { onClickTeam, dataClickTeam } = this.state;
+
+    const data = menuTeams.menuTeams[0];
+    let selectedTeam = {};
+    if (onClickTeam) {
+      selectedTeam = {
+        id: dataClickTeam.id,
+        name: dataClickTeam.name
+      };
+    } else {
+      selectedTeam = {
+        id: data != undefined ? data.id : '',
+        name: data != undefined ? data.name : ''
+      };
+    }
 
     const isTop = PropsLayout === 'topmenu';
     const routerConfig = this.getRouterAuthority(pathname, routes);
     const contentStyle = !fixedHeader ? { paddingTop: 0 } : {};
+
     const layout = (
       <Layout>
         {isTop && !isMobile ? null : (
-          <SiderMenu
+          <SiderFolder
             logo={logo}
             theme={navTheme}
             onCollapse={this.handleMenuCollapse}
             menuData={menuData}
             isMobile={isMobile}
+            teamData={menuTeams.menuTeams}
+            handleTeamClick={this.handleTeamClick}
+            onClickTeam={onClickTeam}
+            selectedTeam={selectedTeam}
             {...this.props}
           />
         )}
@@ -197,6 +239,7 @@ class BasicLayout extends React.PureComponent {
             isMobile={isMobile}
             {...this.props}
           />
+
           <Content className={styles.content} style={contentStyle}>
             <Authorized authority={routerConfig} noMatch={<Exception403 />}>
               {children}
@@ -222,11 +265,11 @@ class BasicLayout extends React.PureComponent {
   }
 }
 
-export default connect(({ global, setting, menu: menuModel }) => ({
+export default connect(({ global, setting, menu }) => ({
   collapsed: global.collapsed,
   layout: setting.layout,
-  menuData: menuModel.menuData,
-  breadcrumbNameMap: menuModel.breadcrumbNameMap,
+  menuData: menu.menuData,
+  breadcrumbNameMap: menu.breadcrumbNameMap,
   ...setting,
 }))(props => (
   <Media query="(max-width: 599px)">
