@@ -113,14 +113,14 @@ class AdminLayout extends React.PureComponent {
     const currRouterData = this.matchParamsPath(pathname, breadcrumbNameMap);
 
     if (!currRouterData) {
-      return 'KWMC - Kanda Web Mail Checker';
+      return 'WAREHOUSE';
     }
     const pageName = formatMessage({
       id: currRouterData.locale || currRouterData.name,
       defaultMessage: currRouterData.name,
     });
 
-    return `KWMC - Kanda Web Mail Checker`;
+    return `WAREHOUSE`;
   };
 
   getLayoutStyle = () => {
