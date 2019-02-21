@@ -5,6 +5,7 @@ import Link from 'umi/link';
 import { Checkbox, Alert, Icon } from 'antd';
 import Login from '@/components/Login';
 import styles from './Login.less';
+import request from '@/utils/request';
 
 const { Tab, UserName, Password, Mobile, Captcha, Submit } = Login;
 
@@ -43,6 +44,15 @@ class LoginPage extends Component {
     const { type } = this.state;
     if (!err) {
       const { dispatch } = this.props;
+      console.log("trungtn", values);
+      fetch("http://192.168.13.106:3000/api/auth/login",{
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json; charset=utf-8'
+        },
+        body: JSON.stringify({username: values.userName, password: values.password})
+      }).then((res)=>{console.log(res.json())});
       dispatch({
         type: 'login/login',
         payload: {
