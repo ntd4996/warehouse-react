@@ -1,22 +1,15 @@
 import React, { PureComponent } from 'react';
 import PageHeaderWrapper from '@/components/PageHeaderWrapper';
+import { Link } from 'react-router-dom';
 import {
-  Card,
-  Input,
-  Row,
-  Col,
-  Button,
-  Table,
-  Tag,
-  Divider,
-  Drawer
+  Card, Input, Row, Col, Button, Table, Tag
 } from 'antd';
 const Search = Input.Search;
-
+const token = localStorage.getItem('token');
 const data = [
   {
     key: '1',
-    name: 'John Brown assadnd asdjnasdj asjdnas',
+    name: '1232132131231213',
     age: 32,
     address: 'New York No. 1 Lake Park',
     tags: ['nice', 'developer']
@@ -36,134 +29,137 @@ const data = [
     tags: ['cool', 'teacher']
   }
 ];
-const DescriptionItem = ({ title, content }) => (
-  <div
-    style={{
-      fontSize: 14,
-      lineHeight: '22px',
-      marginBottom: 7,
-      color: 'rgba(0,0,0,0.65)'
-    }}
-  >
-    <p
-      style={{
-        marginRight: 8,
-        display: 'inline-block',
-        color: 'rgba(0,0,0,0.85)'
-      }}
-    >
-      {title}
-:
-    </p>
-    {content}
-  </div>
-);
 
 class QuanLyXuatKho extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      visible: false
+      dataTable: []
     };
   }
-  request = (url = "http://localhost/api/me",method, body) => {
-    let option = {
-      method: method,
-        headers: {
-      Accept: 'application/json',
-        'Content-Type': 'application/json; charset=utf-8'
-    },
-      body: JSON.stringify(body)};
-      return fetch(url, option)
-        .then(response => {
-          // DELETE and 204 do not return data by default
-          // using .json will report an error.
-          if (newOptions.method === 'DELETE' || response.status === 204) {
-            console.log(response.text());
-            return response.text();
-          }
-          console.log(response.json());
-          return response.json();
-        });
-    };
 
-  showDrawer = () => {
-    this.setState({
-      visible: true
+  componentDidMount() {
+    this.request('http://localhost:3001/api/purchase-orders?orderType=out', {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json; charset=utf-8',
+        Authorization: 'Bearer ' + token
+      }
+    }).then((data) => {
+      this.setState({
+        dataTable: data.items
+      });
+      this.forceUpdate();
     });
-  };
+  }
 
-  onClose = () => {
-    this.setState({
-      visible: false
-    });
+  request = (url, option) => {
+    const newOption = option;
+    return fetch(url, option)
+      .then((response) => {
+        // DELETE and 204 do not return data by default
+        // using .json will report an error.
+        if (newOption.method === 'DELETE' || response.status === 204) {
+          console.log(response.text());
+          return response.text();
+        }
+        // console.log(response);
+        return response.json();
+      })
+      .then((data) => data);
   };
 
   render() {
     const columns = [
       {
         title: 'Mã Đơn',
-        dataIndex: 'name',
-        width: '10%',
-        key: 'name',
+        align: 'center',
+        dataIndex: 'id',
+        width: '15%',
+        key: 'id',
         render: (text, record) => (
-          <a onClick={() => this.showDrawer()} >{text}</a>
+          <Link to={'/warehouse/detail/' + text}>{text}</Link>
         )
       },
       {
+        align: 'center',
         title: 'Vị Trí',
-        width: '10%',
-        dataIndex: 'age',
-        key: 'age'
+        width: '15%',
+        dataIndex: 'location',
+        key: 'location'
       },
       {
+        align: 'center',
         title: 'Khu Vực',
-        dataIndex: 'address',
-        key: 'address'
+        width: '15%',
+        dataIndex: 'areas',
+        key: 'areas'
       },
       {
+        align: 'center',
         title: 'Đơn Vị Quản Lý',
-        dataIndex: 'address',
-        key: 'address'
+        width: '15%',
+        dataIndex: 'managerDepartment',
+        key: 'managerDepartment'
       },
       {
+        align: 'center',
         title: 'Tổng Tiền',
-        dataIndex: 'address',
-        key: 'address'
+        width: '10%',
+        dataIndex: 'subtotal',
+        key: 'subtotal'
       },
       {
+        align: 'center',
         title: 'Trạng Thái',
-        key: 'tags',
-        dataIndex: 'tags',
-        render: (tags) => (
-          <span>
-            {tags.map((tag) => {
-              let color = tag.length > 5 ? 'geekblue' : 'green';
-              if (tag === 'loser') {
-                color = 'volcano';
-              }
-              return (
-                <Tag color={color} key={tag}>
-                  {tag.toUpperCase()}
-                </Tag>
-              );
-            })}
-          </span>
-        )
+        width: '10%',
+        key: 'status',
+        dataIndex: 'status',
+        render: (status) => {
+          if (status === 'pending') {
+            return <Tag color="orange">{status}</Tag>;
+          }
+        }
       },
       {
+        align: 'center',
+        width: '10%',
         title: 'Ngày Xuất Kho',
-        dataIndex: 'address',
-        key: 'address'
+        dataIndex: 'outputDate',
+        key: 'outputDate',
+        render: (outputDate) => {
+          const date = new Date(outputDate);
+          return (
+            date.getDate()
+            + '/'
+            + (date.getMonth() + 1)
+            + '/'
+            + date.getFullYear()
+          );
+        }
       },
       {
+        align: 'center',
         title: '',
         key: 'action',
         width: '10%',
         render: (text, record) => (
           <span>
-            <Button type="primary" shape="circle" icon="edit" size='small' style={{marginRight:'5px'}}  />
-            <Button type="danger" shape="circle" icon="delete" onClick={() => console.log('a')}  size='small'/>
+            <Button
+              type="primary"
+              shape="circle"
+              icon="edit"
+              size="small"
+              style={{ marginRight: '5px' }}
+            />
+            <Button
+              type="danger"
+              shape="circle"
+              icon="delete"
+              onClick={() => console.log('a')}
+              size="small"
+            />
           </span>
         )
       }
@@ -194,7 +190,8 @@ class QuanLyXuatKho extends PureComponent {
           <Row>
             <Table
               columns={columns}
-              dataSource={data}
+              align="center"
+              dataSource={this.state.dataTable}
               // onRow={(record) => ({
               //   onClick: () => {
               //     console.log(record);
@@ -203,103 +200,6 @@ class QuanLyXuatKho extends PureComponent {
             />
           </Row>
         </Card>
-        <Drawer
-          width={640}
-          placement="right"
-          closable={false}
-          onClose={this.onClose}
-          visible={this.state.visible}
-        >
-          <p style={{ marginBottom: 24 }}>User Profile</p>
-          <p>Personal</p>
-          <Row>
-            <Col span={12}>
-              <DescriptionItem title="Full Name" content="Lily" />
-              {' '}
-            </Col>
-            <Col span={12}>
-              <DescriptionItem
-                title="Account"
-                content="AntDesign@example.com"
-              />
-            </Col>
-          </Row>
-          <Row>
-            <Col span={12}>
-              <DescriptionItem title="City" content="HangZhou" />
-            </Col>
-            <Col span={12}>
-              <DescriptionItem title="Country" content="China🇨🇳" />
-            </Col>
-          </Row>
-          <Row>
-            <Col span={12}>
-              <DescriptionItem title="Birthday" content="February 2,1900" />
-            </Col>
-            <Col span={12}>
-              <DescriptionItem title="Website" content="-" />
-            </Col>
-          </Row>
-          <Row>
-            <Col span={24}>
-              <DescriptionItem
-                title="Message"
-                content="Make things as simple as possible but no simpler."
-              />
-            </Col>
-          </Row>
-          <Divider />
-          <p>Company</p>
-          <Row>
-            <Col span={12}>
-              <DescriptionItem title="Position" content="Programmer" />
-            </Col>
-            <Col span={12}>
-              <DescriptionItem title="Responsibilities" content="Coding" />
-            </Col>
-          </Row>
-          <Row>
-            <Col span={12}>
-              <DescriptionItem title="Department" content="AFX" />
-            </Col>
-            <Col span={12}>
-              <DescriptionItem title="Supervisor" content={<a>Lin</a>} />
-            </Col>
-          </Row>
-          <Row>
-            <Col span={24}>
-              <DescriptionItem
-                title="Skills"
-                content="C / C + +, data structures, software engineering, operating systems, computer networks, databases, compiler theory, computer architecture, Microcomputer Principle and Interface Technology, Computer English, Java, ASP, etc."
-              />
-            </Col>
-          </Row>
-          <Divider />
-          <p>Contacts</p>
-          <Row>
-            <Col span={12}>
-              <DescriptionItem title="Email" content="AntDesign@example.com" />
-            </Col>
-            <Col span={12}>
-              <DescriptionItem
-                title="Phone Number"
-                content="+86 181 0000 0000"
-              />
-            </Col>
-          </Row>
-          <Row>
-            <Col span={24}>
-              <DescriptionItem
-                title="Github"
-                content={(
-                  <a href="http://github.com/ant-design/ant-design/">
-                    github.com/ant-design/ant-design/
-                  </a>
-                )}
-              />
-            </Col>
-          </Row>
-        </Drawer>
       </PageHeaderWrapper>
     );
   }
