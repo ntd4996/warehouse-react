@@ -16,7 +16,7 @@ const Search = Input.Search;
 const data = [
   {
     key: '1',
-    name: 'John Brown',
+    name: 'John Brown assadnd asdjnasdj asjdnas',
     age: 32,
     address: 'New York No. 1 Lake Park',
     tags: ['nice', 'developer']
@@ -66,6 +66,26 @@ class QuanLyXuatKho extends PureComponent {
       visible: false
     };
   }
+  request = (url = "http://localhost/api/me",method, body) => {
+    let option = {
+      method: method,
+        headers: {
+      Accept: 'application/json',
+        'Content-Type': 'application/json; charset=utf-8'
+    },
+      body: JSON.stringify(body)};
+      return fetch(url, option)
+        .then(response => {
+          // DELETE and 204 do not return data by default
+          // using .json will report an error.
+          if (newOptions.method === 'DELETE' || response.status === 204) {
+            console.log(response.text());
+            return response.text();
+          }
+          console.log(response.json());
+          return response.json();
+        });
+    };
 
   showDrawer = () => {
     this.setState({
@@ -84,13 +104,15 @@ class QuanLyXuatKho extends PureComponent {
       {
         title: 'Mã Đơn',
         dataIndex: 'name',
+        width: '10%',
         key: 'name',
         render: (text, record) => (
-          <a onClick={() => this.showDrawer()}>{text}</a>
+          <a onClick={() => this.showDrawer()} >{text}</a>
         )
       },
       {
         title: 'Vị Trí',
+        width: '10%',
         dataIndex: 'age',
         key: 'age'
       },
@@ -137,14 +159,11 @@ class QuanLyXuatKho extends PureComponent {
       {
         title: '',
         key: 'action',
+        width: '10%',
         render: (text, record) => (
           <span>
-            <a href="#">
-              Invite
-              {record.name}
-            </a>
-            <Divider type="vertical" />
-            <Button onClick={() => console.log('a')}>aaa</Button>
+            <Button type="primary" shape="circle" icon="edit" size='small' style={{marginRight:'5px'}}  />
+            <Button type="danger" shape="circle" icon="delete" onClick={() => console.log('a')}  size='small'/>
           </span>
         )
       }
@@ -153,7 +172,6 @@ class QuanLyXuatKho extends PureComponent {
     return (
       <PageHeaderWrapper>
         <Card bordered={false}>
-          <Button onClick={this.showDrawer}>aaaa</Button>
           <Row>
             <Col span={6}>
               <h2>Quản Lý Xuất Kho</h2>
