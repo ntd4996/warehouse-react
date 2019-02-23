@@ -5,8 +5,8 @@ import Link from 'umi/link';
 import { Checkbox, Alert, Icon } from 'antd';
 import Login from '@/components/Login';
 import styles from './Login.less';
-import request from '@/utils/request';
-
+import Redirect from 'umi/redirect';
+import { getAuthority } from '@/utils/authority';
 const { Tab, UserName, Password, Mobile, Captcha, Submit } = Login;
 
 @connect(({ login, loading }) => ({
@@ -44,21 +44,12 @@ class LoginPage extends Component {
     const { type } = this.state;
     if (!err) {
       const { dispatch } = this.props;
-      console.log("trungtn", values);
-      fetch("http://192.168.13.106:3000/api/auth/login",{
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json; charset=utf-8'
-        },
-        body: JSON.stringify({username: values.userName, password: values.password})
-      }).then((res)=>{console.log(res.json())});
       dispatch({
         type: 'login/login',
         payload: {
-          ...values,
-          type,
-        },
+          username: values.userName,
+          password: values.password
+        }
       });
     }
   };
@@ -76,8 +67,10 @@ class LoginPage extends Component {
   render() {
     const { login, submitting } = this.props;
     const { type, autoLogin } = this.state;
+    let Authority = getAuthority();
     return (
       <div className={styles.main}>
+        {Authority?<Redirect to="/" />:null}
         <Login
           defaultActiveKey={type}
           onTabChange={this.onTabChange}
@@ -151,18 +144,18 @@ class LoginPage extends Component {
           </Tab>
           <div>
             <Checkbox checked={autoLogin} onChange={this.changeAutoLogin}>
-              <FormattedMessage id="app.login.remember-me" />
+              <FormattedMessage id="app.login.remember-me"/>
             </Checkbox>
             <a style={{ float: 'right' }} href="">
-              <FormattedMessage id="app.login.forgot-password" />
+              <FormattedMessage id="app.login.forgot-password"/>
             </a>
           </div>
           <Submit loading={submitting}>
-            <FormattedMessage id="app.login.login" />
+            <FormattedMessage id="app.login.login"/>
           </Submit>
           <div className={styles.other}>
             <Link className={styles.register} to="/user/register">
-              <FormattedMessage id="app.login.signup" />
+              <FormattedMessage id="app.login.signup"/>
             </Link>
           </div>
         </Login>
