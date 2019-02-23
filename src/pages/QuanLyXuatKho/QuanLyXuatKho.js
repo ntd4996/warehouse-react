@@ -2,33 +2,10 @@ import React, { PureComponent } from 'react';
 import PageHeaderWrapper from '@/components/PageHeaderWrapper';
 import { Link } from 'react-router-dom';
 import {
-  Card, Input, Row, Col, Button, Table, Tag
+  Card, Input, Row, Col, Button, Table, Tag, Icon
 } from 'antd';
 const Search = Input.Search;
 const token = localStorage.getItem('token');
-const data = [
-  {
-    key: '1',
-    name: '1232132131231213',
-    age: 32,
-    address: 'New York No. 1 Lake Park',
-    tags: ['nice', 'developer']
-  },
-  {
-    key: '2',
-    name: 'Jim Green',
-    age: 42,
-    address: 'London No. 1 Lake Park',
-    tags: ['loser']
-  },
-  {
-    key: '3',
-    name: 'Joe Black',
-    age: 32,
-    address: 'Sidney No. 1 Lake Park',
-    tags: ['cool', 'teacher']
-  }
-];
 
 class QuanLyXuatKho extends PureComponent {
   constructor(props) {
@@ -39,7 +16,7 @@ class QuanLyXuatKho extends PureComponent {
   }
 
   componentDidMount() {
-    this.request('http://localhost:3001/api/purchase-orders?orderType=out', {
+    this.request('http://localhost:3000/api/purchase-orders?query={"orderType":"out"}&sort={"createdAt":-1}', {
       method: 'GET',
       headers: {
         Accept: 'application/json',
@@ -118,13 +95,19 @@ class QuanLyXuatKho extends PureComponent {
         dataIndex: 'status',
         render: (status) => {
           if (status === 'pending') {
-            return <Tag color="orange">{status}</Tag>;
+            return <Tag color="orange"><Icon type="clock-circle" /></Tag>;
+          }
+          if (status === 'rejected') {
+            return <Tag color="red"><Icon type="close-circle" /></Tag>;
+          }
+          if (status === 'accepted') {
+            return <Tag color="green"><Icon type="check-circle" /></Tag>;
           }
         }
       },
       {
         align: 'center',
-        width: '10%',
+        width: '11%',
         title: 'Ngày Xuất Kho',
         dataIndex: 'outputDate',
         key: 'outputDate',
@@ -143,7 +126,7 @@ class QuanLyXuatKho extends PureComponent {
         align: 'center',
         title: '',
         key: 'action',
-        width: '10%',
+        width: '9%',
         render: (text, record) => (
           <span>
             <Button
@@ -175,8 +158,8 @@ class QuanLyXuatKho extends PureComponent {
             <Col span={12}>
               <Search
                 placeholder="Nhập từ khóa muốn tìm kiếm..."
-                onSearch={(value) => console.log(value)}
-                enterButton
+                prefix={<Icon type="search" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                enterButton={<Button type="primary" icon="plus" size="large" />}
                 size="large"
               />
             </Col>
@@ -192,11 +175,11 @@ class QuanLyXuatKho extends PureComponent {
               columns={columns}
               align="center"
               dataSource={this.state.dataTable}
-              // onRow={(record) => ({
-              //   onClick: () => {
-              //     console.log(record);
-              //   } // click row
-              // })}
+            // onRow={(record) => ({
+            //   onClick: () => {
+            //     console.log(record);
+            //   } // click row
+            // })}
             />
           </Row>
         </Card>

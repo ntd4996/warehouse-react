@@ -18,14 +18,14 @@ const defaultAntd = require('antd/lib/locale-provider/en_US');
 
 const localeInfo = {
   'en-US': {
-    messages: require('/Users/datnt/Downloads/warehouse-react/src/locales/en-US.js').default,
+    messages: require('/Users/sonld/Desktop/warehouse-react/src/locales/en-US.js').default,
     locale: 'en-US',
     antd: require('antd/lib/locale-provider/en_US'),
     data: require('react-intl/locale-data/en'),
     momentLocale: '',
   },
   'zh-CN': {
-    messages: require('/Users/datnt/Downloads/warehouse-react/src/locales/zh-CN.js').default,
+    messages: require('/Users/sonld/Desktop/warehouse-react/src/locales/zh-CN.js').default,
     locale: 'zh-CN',
     antd: require('antd/lib/locale-provider/zh_CN'),
     data: require('react-intl/locale-data/zh'),
