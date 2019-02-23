@@ -79,7 +79,7 @@ class EditSanPham extends PureComponent {
             );
     return (
       <Modal
-        title="Thêm Kho Hàng Mới"
+        title="Thêm Sản Phẩm Mới"
         visible={this.props.visible}
         onOk={this.handleSubmit}
         onCancel={this.props.showModalEdit}
