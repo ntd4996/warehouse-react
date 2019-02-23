@@ -1,12 +1,12 @@
 export default {
   'GET /api/currentUser': {
-    avatar: 'https://kwmc.nal.vn/images/avatar.png',
+    avatar: 'https://WAREHOUSE.nal.vn/images/avatar.png',
     userId: '5',
     email: 'ruby@gmail.com',
-    username: 'rubykwmc',
+    username: 'rubyWAREHOUSE',
     firstName: 'Ruby',
-    lastName: 'KWMC',
-    fullName: 'Ruby KWMC',
+    lastName: 'WAREHOUSE',
+    fullName: 'Ruby WAREHOUSE',
     notifyCount: 12,
     unreadCount: 11,
     country: 'China',

@@ -7,7 +7,7 @@ import {
 const Search = Input.Search;
 const token = localStorage.getItem('token');
 
-class QuanLyXuatKho extends PureComponent {
+class DuyetDon extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -56,7 +56,7 @@ class QuanLyXuatKho extends PureComponent {
         width: '15%',
         key: 'id',
         render: (text, record) => (
-          <Link to={'/warehouse/detail/' + text}>{text}</Link>
+          <Link to={'/warehouse/duyet/' + text}>{text}</Link>
         )
       },
       {
@@ -163,11 +163,11 @@ class QuanLyXuatKho extends PureComponent {
                 size="large"
               /> */}
             </Col>
-            <Col span={6} style={{ textAlign: 'center' }}>
+            {/* <Col span={6} style={{ textAlign: 'center' }}>
               <Button type="primary" icon="plus" size="large">
                 Xuất Kho
               </Button>
-            </Col>
+            </Col> */}
           </Row>
           <br />
           <Row>
@@ -188,4 +188,4 @@ class QuanLyXuatKho extends PureComponent {
   }
 }
 
-export default QuanLyXuatKho;
+export default DuyetDon;

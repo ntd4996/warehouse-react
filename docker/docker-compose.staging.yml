@@ -1,11 +1,11 @@
 version: "3.5"
 
 services:
-    kwmc-frontend:
+    WAREHOUSE-frontend:
         image: nginx
         ports:
         - 3000:80
-        container_name: "kwmc-frontend"
+        container_name: "WAREHOUSE-frontend"
         restart: unless-stopped
         volumes:
         - ../dist:/usr/share/nginx/html:ro

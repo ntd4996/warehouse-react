@@ -8,7 +8,7 @@ class Logo extends Component {
             <Link to="/">
                 <h1 className="header-logo">
                     <Badge count={'Alpha'} style={{ backgroundColor: '#52c41a' }}>
-                        <span>KWMC</span>
+                        <span>WAREHOUSE</span>
                     </Badge>
                 </h1>
             </Link>

@@ -54,6 +54,11 @@ export default [
         component: './ChiTietDon/ChiTietDon'
       },
       {
+        path: '/warehouse/duyet/:detailId',
+        icon: 'caret-down',
+        component: './ChiTietDuyet/ChiTietDuyet'
+      },
+      {
         path: '/warehouse/export',
         name: 'qlxk',
         icon: 'caret-up',
@@ -71,6 +76,13 @@ export default [
         name: 'dskh',
         icon: 'dashboard',
         component: './DanhSachKhoHang/DanhSachKhoHang'
+      },
+
+      {
+        path: '/admin/duyet',
+        name: 'dd',
+        icon: 'dashboard',
+        component: './DuyetDon/DuyetDon'
       }
     ]
   }

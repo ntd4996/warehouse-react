@@ -28,7 +28,7 @@ class PrimaryLayout extends Component {
                     </Layout>
                 </Layout>
                 <div className="footer-wrap">
-                    <span>&copy; 2018 Internet Initiative Japan</span>
+                    <span>&copy; 2018 Kho Tân Cảng</span>
                 </div>
             </Layout>
         );

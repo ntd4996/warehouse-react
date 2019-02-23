@@ -33,14 +33,12 @@ let routes = [
       },
       {
         "component": () => React.createElement(require('/Users/sonld/Desktop/warehouse-react/node_modules/umi-build-dev/lib/plugins/404/NotFound.js').default, { pagesPath: 'src/pages', hasRoutesInConfig: true })
-
       }
     ]
   },
   {
     "path": "/",
     "component": dynamic({ loader: () => import('../../layouts/AdminLayout'), loading: require('/Users/sonld/Desktop/warehouse-react/src/components/PageLoading/index').default }),
-
     "Routes": [require('../Authorized').default],
     "authority": [
       "admin",
@@ -57,7 +55,6 @@ let routes = [
         "name": "setting.folder",
         "icon": "folder",
         "component": dynamic({ loader: () => import('../SettingFolder/SettingFolder'), loading: require('/Users/sonld/Desktop/warehouse-react/src/components/PageLoading/index').default }),
-
         "exact": true
       },
       {
@@ -65,7 +62,6 @@ let routes = [
         "name": "setting.team",
         "icon": "team",
         "component": dynamic({ loader: () => import('../SettingTeam/SettingTeam'), loading: require('/Users/sonld/Desktop/warehouse-react/src/components/PageLoading/index').default }),
-
         "exact": true
       },
       {
@@ -73,7 +69,6 @@ let routes = [
         "name": "dashboard",
         "icon": "dashboard",
         "component": dynamic({ loader: () => import('../Dashboard/Dashboard'), loading: require('/Users/sonld/Desktop/warehouse-react/src/components/PageLoading/index').default }),
-
         "exact": true
       },
       {
@@ -81,7 +76,6 @@ let routes = [
         "name": "qlsp",
         "icon": "appstore",
         "component": dynamic({ loader: () => import('../QuanLySanPham/QuanLySanPham'), loading: require('/Users/sonld/Desktop/warehouse-react/src/components/PageLoading/index').default }),
-
         "exact": true
       },
       {
@@ -89,14 +83,18 @@ let routes = [
         "name": "qlnk",
         "icon": "caret-down",
         "component": dynamic({ loader: () => import('../QuanLyNhapKho/QuanLyNhapKho'), loading: require('/Users/sonld/Desktop/warehouse-react/src/components/PageLoading/index').default }),
-
         "exact": true
       },
       {
         "path": "/warehouse/detail/:detailId",
         "icon": "caret-down",
         "component": dynamic({ loader: () => import('../ChiTietDon/ChiTietDon'), loading: require('/Users/sonld/Desktop/warehouse-react/src/components/PageLoading/index').default }),
-
+        "exact": true
+      },
+      {
+        "path": "/warehouse/duyet/:detailId",
+        "icon": "caret-down",
+        "component": dynamic({ loader: () => import('../ChiTietDuyet/ChiTietDuyet'), loading: require('/Users/sonld/Desktop/warehouse-react/src/components/PageLoading/index').default }),
         "exact": true
       },
       {
@@ -104,7 +102,6 @@ let routes = [
         "name": "qlxk",
         "icon": "caret-up",
         "component": dynamic({ loader: () => import('../QuanLyXuatKho/QuanLyXuatKho'), loading: require('/Users/sonld/Desktop/warehouse-react/src/components/PageLoading/index').default }),
-
         "exact": true
       },
       {
@@ -112,7 +109,6 @@ let routes = [
         "name": "dsnd",
         "icon": "team",
         "component": dynamic({ loader: () => import('../DanhSachNguoiDung/DanhSachNguoiDung'), loading: require('/Users/sonld/Desktop/warehouse-react/src/components/PageLoading/index').default }),
-
         "exact": true
       },
       {
@@ -123,14 +119,19 @@ let routes = [
         "exact": true
       },
       {
+        "path": "/admin/duyet",
+        "name": "dd",
+        "icon": "dashboard",
+        "component": dynamic({ loader: () => import('../DuyetDon/DuyetDon'), loading: require('/Users/sonld/Desktop/warehouse-react/src/components/PageLoading/index').default }),
+        "exact": true
+      },
+      {
         "component": () => React.createElement(require('/Users/sonld/Desktop/warehouse-react/node_modules/umi-build-dev/lib/plugins/404/NotFound.js').default, { pagesPath: 'src/pages', hasRoutesInConfig: true })
-
       }
     ]
   },
   {
     "component": () => React.createElement(require('/Users/sonld/Desktop/warehouse-react/node_modules/umi-build-dev/lib/plugins/404/NotFound.js').default, { pagesPath: 'src/pages', hasRoutesInConfig: true })
-
   }
 ];
 window.g_routes = routes;

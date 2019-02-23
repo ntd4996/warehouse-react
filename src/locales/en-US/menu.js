@@ -7,6 +7,7 @@ export default {
   'menu.ctd': 'Chi Tiết Đơn',
   'menu.dsnd': 'Danh Sách Người Dùng',
   'menu.dskh': 'Danh Sách Kho Hàng',
+  'menu.dd': 'Duyệt Đơn',
   'menu.dashboard.monitor': 'Monitor',
   'menu.dashboard.workplace': 'Workplace',
   'menu.form': 'Form',

@@ -19,7 +19,7 @@ export function getAuthority(str) {
 export function setAuthority(authority) {
   console.log(authority);
   const proAuthority = typeof authority === 'string' ? authority : authority;
-  return localStorage.setItem('token', JSON.stringify(proAuthority));
+  return localStorage.setItem('token', proAuthority);
 }
 
 export function deleteAuthority() {
