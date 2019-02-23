@@ -113,14 +113,13 @@ class AdminLayout extends React.PureComponent {
     const currRouterData = this.matchParamsPath(pathname, breadcrumbNameMap);
 
     if (!currRouterData) {
-      return 'WAREHOUSE';
+      return 'Warehouse';
     }
     const pageName = formatMessage({
       id: currRouterData.locale || currRouterData.name,
       defaultMessage: currRouterData.name,
     });
-
-    return `WAREHOUSE`;
+    return `Warehouse`;
   };
 
   getLayoutStyle = () => {

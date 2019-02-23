@@ -47,7 +47,7 @@ let routes = [
     "routes": [
       {
         "path": "/",
-        "redirect": "/admin/setting/folder",
+        "redirect": "/dashboard",
         "exact": true
       },
       {
@@ -83,6 +83,12 @@ let routes = [
         "name": "qlnk",
         "icon": "caret-down",
         "component": dynamic({ loader: () => import('../QuanLyNhapKho/QuanLyNhapKho'), loading: require('/Users/macbookpro/Desktop/warehouse-react/src/components/PageLoading/index').default }),
+        "exact": true
+      },
+      {
+        "path": "/warehouse/detail/:detailId",
+        "icon": "caret-down",
+        "component": dynamic({ loader: () => import('../ChiTietDon/ChiTietDon'), loading: require('/Users/macbookpro/Desktop/warehouse-react/src/components/PageLoading/index').default }),
         "exact": true
       },
       {

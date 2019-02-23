@@ -17,7 +17,7 @@ export default [
     Routes: ['src/pages/Authorized'],
     authority: ['admin', 'user'],
     routes: [
-      { path: '/', redirect: '/admin/setting/folder' },
+      { path: '/', redirect: '/dashboard' },
       {
         path: '/admin/setting/folder',
         name: 'setting.folder',
@@ -47,6 +47,11 @@ export default [
         name: 'qlnk',
         icon: 'caret-down',
         component: './QuanLyNhapKho/QuanLyNhapKho'
+      },
+      {
+        path: '/warehouse/detail/:detailId',
+        icon: 'caret-down',
+        component: './ChiTietDon/ChiTietDon'
       },
       {
         path: '/warehouse/export',

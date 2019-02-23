@@ -4,6 +4,7 @@ export default {
   'menu.qlsp': 'Quản Lý Sản Phẩm',
   'menu.qlnk': 'Quản Lý Nhập Kho',
   'menu.qlxk': 'Quản Lý Xuất Kho',
+  'menu.ctd': 'Chi Tiết Đơn',
   'menu.dsnd': 'Danh Sách Người Dùng',
   'menu.dskh': 'Danh Sách Kho Hàng',
   'menu.dashboard.monitor': 'Monitor',
