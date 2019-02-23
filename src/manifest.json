@@ -1,6 +1,6 @@
 {
-  "name": "Kanda Web Mail Checker",
-  "short_name": "KWMC",
+  "name": "WAREHOUSE",
+  "short_name": "",
   "display": "standalone",
   "start_url": "./?utm_source=homescreen",
   "theme_color": "#002140",

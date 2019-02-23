@@ -119,7 +119,6 @@ class AdminLayout extends React.PureComponent {
       id: currRouterData.locale || currRouterData.name,
       defaultMessage: currRouterData.name,
     });
-
     return `Warehouse`;
   };
 
