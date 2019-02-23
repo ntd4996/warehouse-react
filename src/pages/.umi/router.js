@@ -2,14 +2,14 @@ import React from 'react';
 import { Router as DefaultRouter, Route, Switch } from 'react-router-dom';
 import dynamic from 'umi/dynamic';
 import renderRoutes from 'umi/_renderRoutes';
-import RendererWrapper0 from '/Users/sonld/Desktop/warehouse-react/src/pages/.umi/LocaleWrapper.jsx'
+import RendererWrapper0 from '/Users/macbookpro/Desktop/warehouse-react/src/pages/.umi/LocaleWrapper.jsx'
 
 let Router = require('dva/router').routerRedux.ConnectedRouter;
 
 let routes = [
   {
     "path": "/user",
-    "component": dynamic({ loader: () => import('../../layouts/UserLayout'), loading: require('/Users/sonld/Desktop/warehouse-react/src/components/PageLoading/index').default }),
+    "component": dynamic({ loader: () => import('../../layouts/UserLayout'), loading: require('/Users/macbookpro/Desktop/warehouse-react/src/components/PageLoading/index').default }),
     "routes": [
       {
         "path": "/user",
@@ -18,29 +18,27 @@ let routes = [
       },
       {
         "path": "/user/login",
-        "component": dynamic({ loader: () => import('../User/Login'), loading: require('/Users/sonld/Desktop/warehouse-react/src/components/PageLoading/index').default }),
+        "component": dynamic({ loader: () => import('../User/Login'), loading: require('/Users/macbookpro/Desktop/warehouse-react/src/components/PageLoading/index').default }),
         "exact": true
       },
       {
         "path": "/user/register",
-        "component": dynamic({ loader: () => import('../User/Register'), loading: require('/Users/sonld/Desktop/warehouse-react/src/components/PageLoading/index').default }),
+        "component": dynamic({ loader: () => import('../User/Register'), loading: require('/Users/macbookpro/Desktop/warehouse-react/src/components/PageLoading/index').default }),
         "exact": true
       },
       {
         "path": "/user/register-result",
-        "component": dynamic({ loader: () => import('../User/RegisterResult'), loading: require('/Users/sonld/Desktop/warehouse-react/src/components/PageLoading/index').default }),
+        "component": dynamic({ loader: () => import('../User/RegisterResult'), loading: require('/Users/macbookpro/Desktop/warehouse-react/src/components/PageLoading/index').default }),
         "exact": true
       },
       {
-        "component": () => React.createElement(require('/Users/sonld/Desktop/warehouse-react/node_modules/umi-build-dev/lib/plugins/404/NotFound.js').default, { pagesPath: 'src/pages', hasRoutesInConfig: true })
-
+        "component": () => React.createElement(require('/Users/macbookpro/Desktop/warehouse-react/node_modules/umi-build-dev/lib/plugins/404/NotFound.js').default, { pagesPath: 'src/pages', hasRoutesInConfig: true })
       }
     ]
   },
   {
     "path": "/",
-    "component": dynamic({ loader: () => import('../../layouts/AdminLayout'), loading: require('/Users/sonld/Desktop/warehouse-react/src/components/PageLoading/index').default }),
-
+    "component": dynamic({ loader: () => import('../../layouts/AdminLayout'), loading: require('/Users/macbookpro/Desktop/warehouse-react/src/components/PageLoading/index').default }),
     "Routes": [require('../Authorized').default],
     "authority": [
       "admin",
@@ -56,81 +54,71 @@ let routes = [
         "path": "/admin/setting/folder",
         "name": "setting.folder",
         "icon": "folder",
-        "component": dynamic({ loader: () => import('../SettingFolder/SettingFolder'), loading: require('/Users/sonld/Desktop/warehouse-react/src/components/PageLoading/index').default }),
-
+        "component": dynamic({ loader: () => import('../SettingFolder/SettingFolder'), loading: require('/Users/macbookpro/Desktop/warehouse-react/src/components/PageLoading/index').default }),
         "exact": true
       },
       {
         "path": "/admin/setting/team",
         "name": "setting.team",
         "icon": "team",
-        "component": dynamic({ loader: () => import('../SettingTeam/SettingTeam'), loading: require('/Users/sonld/Desktop/warehouse-react/src/components/PageLoading/index').default }),
-
+        "component": dynamic({ loader: () => import('../SettingTeam/SettingTeam'), loading: require('/Users/macbookpro/Desktop/warehouse-react/src/components/PageLoading/index').default }),
         "exact": true
       },
       {
         "path": "/dashboard",
         "name": "dashboard",
         "icon": "dashboard",
-        "component": dynamic({ loader: () => import('../Dashboard/Dashboard'), loading: require('/Users/sonld/Desktop/warehouse-react/src/components/PageLoading/index').default }),
-
+        "component": dynamic({ loader: () => import('../Dashboard/Dashboard'), loading: require('/Users/macbookpro/Desktop/warehouse-react/src/components/PageLoading/index').default }),
         "exact": true
       },
       {
         "path": "/products",
         "name": "qlsp",
         "icon": "appstore",
-        "component": dynamic({ loader: () => import('../QuanLySanPham/QuanLySanPham'), loading: require('/Users/sonld/Desktop/warehouse-react/src/components/PageLoading/index').default }),
-
+        "component": dynamic({ loader: () => import('../QuanLySanPham/QuanLySanPham'), loading: require('/Users/macbookpro/Desktop/warehouse-react/src/components/PageLoading/index').default }),
         "exact": true
       },
       {
         "path": "/warehouse/import",
         "name": "qlnk",
         "icon": "caret-down",
-        "component": dynamic({ loader: () => import('../QuanLyNhapKho/QuanLyNhapKho'), loading: require('/Users/sonld/Desktop/warehouse-react/src/components/PageLoading/index').default }),
-
+        "component": dynamic({ loader: () => import('../QuanLyNhapKho/QuanLyNhapKho'), loading: require('/Users/macbookpro/Desktop/warehouse-react/src/components/PageLoading/index').default }),
         "exact": true
       },
       {
         "path": "/warehouse/detail/:detailId",
         "icon": "caret-down",
-        "component": dynamic({ loader: () => import('../ChiTietDon/ChiTietDon'), loading: require('/Users/sonld/Desktop/warehouse-react/src/components/PageLoading/index').default }),
-
+        "component": dynamic({ loader: () => import('../ChiTietDon/ChiTietDon'), loading: require('/Users/macbookpro/Desktop/warehouse-react/src/components/PageLoading/index').default }),
         "exact": true
       },
       {
         "path": "/warehouse/export",
         "name": "qlxk",
         "icon": "caret-up",
-        "component": dynamic({ loader: () => import('../QuanLyXuatKho/QuanLyXuatKho'), loading: require('/Users/sonld/Desktop/warehouse-react/src/components/PageLoading/index').default }),
-
+        "component": dynamic({ loader: () => import('../QuanLyXuatKho/QuanLyXuatKho'), loading: require('/Users/macbookpro/Desktop/warehouse-react/src/components/PageLoading/index').default }),
         "exact": true
       },
       {
         "path": "/admin/users",
         "name": "dsnd",
         "icon": "team",
-        "component": dynamic({ loader: () => import('../DanhSachNguoiDung/DanhSachNguoiDung'), loading: require('/Users/sonld/Desktop/warehouse-react/src/components/PageLoading/index').default }),
-
+        "component": dynamic({ loader: () => import('../DanhSachNguoiDung/DanhSachNguoiDung'), loading: require('/Users/macbookpro/Desktop/warehouse-react/src/components/PageLoading/index').default }),
         "exact": true
       },
       {
         "path": "/admin/warehouses",
         "name": "dskh",
         "icon": "dashboard",
-        "component": dynamic({ loader: () => import('../DanhSachKhoHang/DanhSachKhoHang'), loading: require('/Users/sonld/Desktop/warehouse-react/src/components/PageLoading/index').default }),
+        "component": dynamic({ loader: () => import('../DanhSachKhoHang/DanhSachKhoHang'), loading: require('/Users/macbookpro/Desktop/warehouse-react/src/components/PageLoading/index').default }),
         "exact": true
       },
       {
-        "component": () => React.createElement(require('/Users/sonld/Desktop/warehouse-react/node_modules/umi-build-dev/lib/plugins/404/NotFound.js').default, { pagesPath: 'src/pages', hasRoutesInConfig: true })
-
+        "component": () => React.createElement(require('/Users/macbookpro/Desktop/warehouse-react/node_modules/umi-build-dev/lib/plugins/404/NotFound.js').default, { pagesPath: 'src/pages', hasRoutesInConfig: true })
       }
     ]
   },
   {
-    "component": () => React.createElement(require('/Users/sonld/Desktop/warehouse-react/node_modules/umi-build-dev/lib/plugins/404/NotFound.js').default, { pagesPath: 'src/pages', hasRoutesInConfig: true })
-
+    "component": () => React.createElement(require('/Users/macbookpro/Desktop/warehouse-react/node_modules/umi-build-dev/lib/plugins/404/NotFound.js').default, { pagesPath: 'src/pages', hasRoutesInConfig: true })
   }
 ];
 window.g_routes = routes;

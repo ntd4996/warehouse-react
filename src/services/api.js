@@ -1,6 +1,6 @@
 import { stringify } from 'qs';
 import request from '@/utils/request';
-
+const domain= "http://192.168.13.106:3000/api";
 export async function queryRule(params) {
   return request(`/api/rule?${stringify(params)}`);
 }
@@ -36,7 +36,7 @@ export async function updateRule(params) {
 }
 
 export async function fakeAccountLogin(params) {
-  return request('http://192.168.13.106:3000/api/auth/login/', {
+  return request(domain + '/auth/login/', {
     method: 'POST',
     body: params,
   });
