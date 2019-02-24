@@ -17,20 +17,22 @@ if (Authority) {
       console.log('socketID: ', pusher.connection.socket_id);
     });
     Notification.requestPermission();
-    pusher.subscribe(data.username)
-      .bind('post_updated', (post)=>{
-        console.log(post);
-        const notification = new Notification(post.title,
-          {
-            icon: 'https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png',
-            body: post.body,
-          });
-        notification.onclick = (event) => {
-          window.location.href = '/warehouse/approver/detail/' + post.purchaseOrderId;
-          event.preventDefault();
-          notification.close();
-        };
-      });
+    console.log(data);
+    if (data && data.username)
+      pusher.subscribe(data.username)
+        .bind('post_updated', (post)=>{
+          console.log(post);
+          const notification = new Notification(post.title,
+            {
+              icon: 'https://cdn1.iconfinder.com/data/icons/ninja-things-1/1772/ninja-simple-512.png',
+              body: post.body,
+            });
+          notification.onclick = (event) => {
+            window.location.href = '/warehouse/approver/detail/' + post.purchaseOrderId;
+            event.preventDefault();
+            notification.close();
+          };
+        });
   });
 }
 export default ({ children }) => {
