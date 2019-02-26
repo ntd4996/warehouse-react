@@ -66,7 +66,7 @@ const data = [{
   address: 'Sidney No. 1 Lake Park',
   tags: ['cool', 'teacher'],
 }];
-class ChiTietDon extends PureComponent {
+class ThemDonXuat extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
@@ -147,16 +147,9 @@ class ChiTietDon extends PureComponent {
             <Col span={6}>
               <h2>Chi Tiết Đơn</h2>
             </Col>
-            <Col span={10}>
-            
+            <Col span={12}>
             </Col>
-            <Col span={7} style={{ textAlign: 'center' }}>
-            <Button type="primary" size="large" onClick={this.showModalCreate} style={{marginRight:'10px'}}>
-                Duyệt Đơn
-              </Button>
-              <Button type="primary" size="large" onClick={this.showModalCreate}>
-                Huỷ Đơn
-              </Button>
+            <Col span={6} style={{ textAlign: 'center' }}>
             </Col>
           </Row>
           <br />
@@ -248,4 +241,4 @@ class ChiTietDon extends PureComponent {
   }
 }
 
-export default Form.create()(ChiTietDon);
+export default Form.create()(ThemDonXuat);

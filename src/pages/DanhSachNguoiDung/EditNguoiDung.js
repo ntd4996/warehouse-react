@@ -21,7 +21,7 @@ class EditNguoiDung extends PureComponent {
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
-        this.request('http://localhost:3000/api/users/' + this.props.recordEdit.id, {
+        this.request('http://localhost:3001/api/users/' + this.props.recordEdit.id, {
           method: 'PATCH',
           headers: {
             Accept: 'application/json',
@@ -39,7 +39,7 @@ class EditNguoiDung extends PureComponent {
     });
   }
   componentDidMount() {
-    this.request('http://localhost:3000/api/warehouses', {
+    this.request('http://localhost:3001/api/warehouses', {
       method: 'GET',
       headers: {
         Accept: 'application/json',

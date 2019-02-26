@@ -28,7 +28,7 @@ class EditKhoHang extends PureComponent {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        this.request('http://localhost:3000/api/warehouses/' + this.props.record.id, {
+        this.request('http://localhost:3001/api/warehouses/' + this.props.record.id, {
           method: 'PATCH',
           headers: {
             Accept: 'application/json',

@@ -46,7 +46,7 @@ class DanhSachNguoiDung extends PureComponent {
     this.setState({
       visibleEdit: !this.state.visibleEdit,
     });
-    this.request('http://localhost:3000/api/users?filter={"populate":"warehouseId"}', {
+    this.request('http://localhost:3001/api/users?filter={"populate":"warehouseId"}', {
       method: 'GET',
       headers: {
         Accept: 'application/json',
@@ -74,7 +74,7 @@ class DanhSachNguoiDung extends PureComponent {
     this.forceUpdate();
   }
   handleOk = () => {
-    this.request('http://localhost:3000/api/users/' + this.state.record, {
+    this.request('http://localhost:3001/api/users/' + this.state.record, {
       method: 'DELETE',
       headers: {
         Accept: 'application/json',
@@ -82,7 +82,7 @@ class DanhSachNguoiDung extends PureComponent {
         Authorization: 'Bearer ' + token
       }
     }).then(() => {
-      this.request('http://localhost:3000/api/users?filter={"populate":"warehouseId"}', {
+      this.request('http://localhost:3001/api/users?filter={"populate":"warehouseId"}', {
         method: 'GET',
         headers: {
           Accept: 'application/json',
@@ -104,7 +104,7 @@ class DanhSachNguoiDung extends PureComponent {
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
-        this.request('http://localhost:3000/api/users', {
+        this.request('http://localhost:3001/api/users', {
           method: 'POST',
           headers: {
             Accept: 'application/json',
@@ -115,7 +115,7 @@ class DanhSachNguoiDung extends PureComponent {
         }).then((data) => {
           this.handleCancelCreate();
 
-          this.request('http://localhost:3000/api/users?filter={"populate":"warehouseId"}', {
+          this.request('http://localhost:3001/api/users?filter={"populate":"warehouseId"}', {
             method: 'GET',
             headers: {
               Accept: 'application/json',
@@ -150,7 +150,7 @@ class DanhSachNguoiDung extends PureComponent {
 
   }
   componentDidMount() {
-    this.request('http://localhost:3000/api/users?filter={"populate":"warehouseId"}', {
+    this.request('http://localhost:3001/api/users?filter={"populate":"warehouseId"}', {
       method: 'GET',
       headers: {
         Accept: 'application/json',
@@ -163,7 +163,7 @@ class DanhSachNguoiDung extends PureComponent {
       });
       this.forceUpdate();
     });
-    this.request('http://localhost:3000/api/warehouses', {
+    this.request('http://localhost:3001/api/warehouses', {
       method: 'GET',
       headers: {
         Accept: 'application/json',

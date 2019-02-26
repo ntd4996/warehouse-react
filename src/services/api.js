@@ -1,6 +1,6 @@
 import { stringify } from 'qs';
 import request from '@/utils/request';
-const domain= "http://192.168.13.106:3000/api";
+const domain= "http://localhost:3001/api";
 export async function queryRule(params) {
   return request(`/api/rule?${stringify(params)}`);
 }

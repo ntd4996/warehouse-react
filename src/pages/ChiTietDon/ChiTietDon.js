@@ -78,7 +78,7 @@ class ChiTietDon extends PureComponent {
   }
 
   componentDidMount() {
-    this.request('http://localhost:3000/api/purchase-orders/' + this.param, {
+    this.request('http://localhost:3001/api/purchase-orders/' + this.param, {
       method: 'GET',
       headers: {
         Accept: 'application/json',
@@ -89,7 +89,7 @@ class ChiTietDon extends PureComponent {
       this.setState({
         data: data,
       }, () => {
-        this.request('http://localhost:3000/api/users/' + data.assignees.user.id, {
+        this.request('http://localhost:3001/api/users/' + data.assignees.user.id, {
           method: 'GET',
           headers: {
             Accept: 'application/json',

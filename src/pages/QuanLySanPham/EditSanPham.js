@@ -37,7 +37,7 @@ class EditSanPham extends PureComponent {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        this.request('http://localhost:3000/api/product/' + this.props.record.id, {
+        this.request('http://localhost:3001/api/product/' + this.props.record.id, {
           method: 'PATCH',
           headers: {
             Accept: 'application/json',
@@ -56,7 +56,7 @@ class EditSanPham extends PureComponent {
     });
   }
   componentDidMount() {
-    this.request('http://localhost:3000/api/warehouses', {
+    this.request('http://localhost:3001/api/warehouses', {
       method: 'GET',
       headers: {
         Accept: 'application/json',

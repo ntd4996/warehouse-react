@@ -16,7 +16,7 @@ class QuanLyNhapKho extends PureComponent {
   }
 
   componentDidMount() {
-    this.request('http://localhost:3000/api/purchase-orders?query={"orderType":"out"}&sort={"createdAt":-1}', {
+    this.request('http://localhost:3001/api/purchase-orders?query={"orderType":"out"}&sort={"createdAt":-1}', {
       method: 'GET',
       headers: {
         Accept: 'application/json',
