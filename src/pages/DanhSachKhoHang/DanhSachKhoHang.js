@@ -136,7 +136,7 @@ class DanhSachKhoHang extends PureComponent {
 
   }
   componentDidMount() {
-    this.request('http://localhost:3000/api/warehouses', {
+    this.request('http://192.168.13.106:3000/api/warehouses', {
       method: 'GET',
       headers: {
         Accept: 'application/json',
@@ -194,7 +194,7 @@ class DanhSachKhoHang extends PureComponent {
               icon="edit"
               size="small"
               style={{ marginRight: '5px' }}
-              
+
               onClick={() => this.showModalEdit(record)}
 
             />
@@ -268,7 +268,7 @@ class DanhSachKhoHang extends PureComponent {
                 <Input placeholder="Kho Hàng" size="large" />
               )}
             </Form.Item>
-            
+
           </Form>
         </Modal>
         <EditKhoHang visible={this.state.visibleEdit} record={this.state.record} showModalEdit={this.showModalEdit} closeModalEdit={this.closeModalEdit}/>

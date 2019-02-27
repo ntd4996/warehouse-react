@@ -1,11 +1,12 @@
 import React, { PureComponent } from 'react';
 import PageHeaderWrapper from '@/components/PageHeaderWrapper';
-import { Link, Redirect } from 'react-router-dom';
+import { getListUser, createUser, deleteUser } from '@/services/user';
+import { getListWarehouses } from '@/services/warehouse';
 import {
-  Card, Input, Row, Col, Button, Table, Tag, Icon, Modal, message, Form, Select
+  Card, Input, Row, Col, Button, Table, Modal, message, Form, Select
 } from 'antd';
+import { roleList } from '../../constants/roleList';
 import EditNguoiDung from './EditNguoiDung';
-const token = localStorage.getItem('token');
 
 class DanhSachNguoiDung extends PureComponent {
   constructor(props) {
@@ -18,179 +19,192 @@ class DanhSachNguoiDung extends PureComponent {
       khohang: [],
       visibleEdit: false,
       recordEdit: {
-        created_at: "2019-02-21T19:48:00.160Z",
-        email: "dat@123.vn",
-        id: "5c6f0070fbacf8cc26108856",
+        created_at: '2019-02-21T19:48:00.160Z',
+        email: 'dat@123.vn',
+        id: '5c6f0070fbacf8cc26108856',
         is_active: true,
-        name: "dat",
-        role: "user",
-        updated_at: "2019-02-21T19:48:00.160Z",
-        username: "dat",
+        name: 'dat',
+        role: 'user',
+        updated_at: '2019-02-21T19:48:00.160Z',
+        username: 'dat',
         warehouse: {
-          created_at: "2018-12-03T03:36:55.957Z",
-          id: "5c04a4d712fdcb2034ff81ad",
-          name: "Hải Phòng",
-          updated_at: "2018-12-19T07:27:22.430Z",
+          created_at: '2018-12-03T03:36:55.957Z',
+          id: '5c04a4d712fdcb2034ff81ad',
+          name: 'Hải Phòng',
+          updated_at: '2018-12-19T07:27:22.430Z'
         }
       },
+      loading: false,
+      pagination: {
+        total: 1,
+        current: 1,
+        pageSize: 10,
+      }
     };
   }
+
   showModalEdit = (record) => {
     this.setState({
       visibleEdit: !this.state.visibleEdit,
-      recordEdit: record,
+      recordEdit: record
     });
-    this.forceUpdate();
-  }
+    // this.forceUpdate();
+  };
+
   closeModalEdit = (record) => {
     this.setState({
       visibleEdit: !this.state.visibleEdit,
+      loading: true,
     });
-    this.request('http://localhost:3000/api/users?filter={"populate":"warehouseId"}', {
-      method: 'GET',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json; charset=utf-8',
-        Authorization: 'Bearer ' + token
+    getListUser('?filter={"populate":"warehouseId"}')
+      .then((data) => {
+        if (data) {
+          this.setState({
+            dataTable: data.items,
+            pagination: {
+              total: data.count,
+              current: 1,
+              pageSize: 10,
+            },
+            loading: false,
+          });
+          // this.forceUpdate();
+        }
       }
-    }).then((data) => {
-      this.setState({
-        dataTable: data.items
-      });
-      this.forceUpdate();
-    });
-  }
+      );
+  };
+
   showModal = (record) => {
     this.setState({
       visibleDelete: true,
-      record: record.id,
+      record: record.id
     });
-    this.forceUpdate();
-  }
+    // this.forceUpdate();
+  };
+
   showModalCreate = () => {
-    this.setState({
-      visibleCrate: true,
-    });
-    this.forceUpdate();
-  }
-  handleOk = () => {
-    this.request('http://localhost:3000/api/users/' + this.state.record, {
-      method: 'DELETE',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json; charset=utf-8',
-        Authorization: 'Bearer ' + token
-      }
-    }).then(() => {
-      this.request('http://localhost:3000/api/users?filter={"populate":"warehouseId"}', {
-        method: 'GET',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json; charset=utf-8',
-          Authorization: 'Bearer ' + token
+    getListWarehouses()
+      .then((data) => {
+        if (data) {
+          this.setState({
+            khohang: data.items
+          });
         }
-      }).then((data) => {
-        this.setState({
-          visibleDelete: false,
-          dataTable: data.items
-        });
-        message.success('Xoá người dùng thành công');
-        this.forceUpdate();
-      });
+      }
+      );
+
+    this.setState({
+      visibleCrate: true
     });
-  }
+    // this.forceUpdate();
+  };
+
+  handleOk = () => {
+    deleteUser(this.state.record)
+      .then(() => {
+        this.setState({ loading: true });
+        getListUser('?filter={"populate":"warehouseId"}')
+          .then((data) => {
+            if (data) {
+              this.setState({
+                visibleDelete: false,
+                dataTable: data.items,
+                pagination: {
+                  total: data.count,
+                  current: 1,
+                  pageSize: 10,
+                },
+                loading: false,
+              });
+              message.success('Xoá người dùng thành công');
+              // this.forceUpdate();
+            }
+          }
+          );
+      });
+  };
+
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
-        this.request('http://localhost:3000/api/users', {
-          method: 'POST',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json; charset=utf-8',
-            Authorization: 'Bearer ' + token
-          },
-          body: JSON.stringify(values)
-        }).then((data) => {
-          this.handleCancelCreate();
+        createUser(values)
+          .then(() => {
+            this.handleCancelCreate();
+            this.setState({ loading: true });
+            getListUser('?filter={"populate":"warehouseId"}')
+              .then((data) => {
+                if (data) {
+                  this.setState({
+                    dataTable: data.items,
+                    pagination: {
+                      total: data.count,
+                      current: 1,
+                      pageSize: 10,
+                    },
+                    loading: false,
+                  });
+                }
+                message.success('Thêm người dùng thành công');
 
-          this.request('http://localhost:3000/api/users?filter={"populate":"warehouseId"}', {
-            method: 'GET',
-            headers: {
-              Accept: 'application/json',
-              'Content-Type': 'application/json; charset=utf-8',
-              Authorization: 'Bearer ' + token
-            }
-          }).then((data) => {
-            this.setState({
-              dataTable: data.items
-            });
-            message.success('Thêm người dùng thành công');
-
-            this.forceUpdate();
+                // this.forceUpdate();
+              });
           });
-        });
 
 
       }
     });
-  }
+  };
 
-  handleCancel = (e) => {
+  handleCancel = () => {
     this.setState({
-      visibleDelete: false,
+      visibleDelete: false
     });
-  }
-  handleCancelCreate = (e) => {
+  };
+
+  handleCancelCreate = () => {
     this.setState({
-      visibleCrate: false,
+      visibleCrate: false
     });
     this.props.form.resetFields();
+  };
 
-  }
   componentDidMount() {
-    this.request('http://localhost:3000/api/users?filter={"populate":"warehouseId"}', {
-      method: 'GET',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json; charset=utf-8',
-        Authorization: 'Bearer ' + token
-      }
-    }).then((data) => {
-      this.setState({
-        dataTable: data.items
-      });
-      this.forceUpdate();
-    });
-    this.request('http://localhost:3000/api/warehouses', {
-      method: 'GET',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json; charset=utf-8',
-        Authorization: 'Bearer ' + token
-      }
-    }).then((data) => {
-      this.setState({
-        khohang: data.items
-      });
-      this.forceUpdate();
-    });
-  }
-
-  request = (url, option) => {
-    const newOption = option;
-    return fetch(url, option)
-      .then((response) => {
-        // DELETE and 204 do not return data by default
-        // using .json will report an error.
-        if (newOption.method === 'DELETE' || response.status === 204) {
-          return response;
+    this.setState({ loading: true });
+    getListUser('?filter={"populate":"warehouseId"}')
+      .then((data) => {
+        if (data.items) {
+          this.setState({
+            dataTable: data.items,
+            pagination: {
+              total: data.count,
+              current: 1,
+              pageSize: 10,
+            },
+            loading: false,
+          });
         }
-        // console.log(response);
-        return response.json();
-      })
-      .then((data) => data);
+      });
+  };
+
+  handleTableChange = (pagination) => {
+    this.setState({ loading: true });
+    getListUser('?filter={"populate":"warehouseId"}&page=' + pagination.current)
+      .then((data) => {
+        if (data.items) {
+          this.setState({
+            dataTable: data.items,
+            pagination: {
+              total: data.count,
+              current: pagination.current,
+              pageSize: 10,
+            },
+            loading: false
+          });
+        }
+      });
+    console.log(pagination);
   };
 
   render() {
@@ -212,7 +226,8 @@ class DanhSachNguoiDung extends PureComponent {
         align: 'center',
         title: 'Quyền',
         dataIndex: 'role',
-        key: 'role'
+        key: 'role',
+        render: (role) => ((roleList[role]) ? roleList[role] : '')
       },
       {
         align: 'center',
@@ -228,11 +243,7 @@ class DanhSachNguoiDung extends PureComponent {
         render: (outputDate) => {
           const date = new Date(outputDate);
           return (
-            date.getDate()
-            + '/'
-            + (date.getMonth() + 1)
-            + '/'
-            + date.getFullYear()
+            date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear()
           );
         }
       },
@@ -255,7 +266,7 @@ class DanhSachNguoiDung extends PureComponent {
               type="danger"
               shape="circle"
               icon="delete"
-              onClick={() => console.log('a')}
+              // onClick={() => console.log('a')}
               size="small"
               onClick={() => this.showModal(record)}
             />
@@ -264,10 +275,9 @@ class DanhSachNguoiDung extends PureComponent {
       }
     ];
     const kho = this.state.khohang;
-    const optionItems = kho.map((kho) =>
-      <Select.Option key={kho.id}>{kho.name}</Select.Option>
+    const optionItems = kho.map((item) => <Select.Option key={item.id}>{item.name}</Select.Option>
     );
-
+    console.log(this.state);
     const { getFieldDecorator } = this.props.form;
     return (
       <PageHeaderWrapper>
@@ -276,8 +286,7 @@ class DanhSachNguoiDung extends PureComponent {
             <Col span={6}>
               <h2>Quản Lý Người Dùng</h2>
             </Col>
-            <Col span={12}>
-            </Col>
+            <Col span={12} />
             <Col span={6} style={{ textAlign: 'center' }}>
               <Button type="primary" size="large" onClick={this.showModalCreate}>
                 Thêm Người Dùng
@@ -290,11 +299,9 @@ class DanhSachNguoiDung extends PureComponent {
               columns={columns}
               align="center"
               dataSource={this.state.dataTable}
-            // onRow={(record) => ({
-            //   onClick: () => {
-            //     console.log(record);
-            //   } // click row
-            // })}
+              pagination={this.state.pagination}
+              onChange={this.handleTableChange}
+              loading={this.state.loading}
             />
           </Row>
         </Card>
@@ -316,17 +323,23 @@ class DanhSachNguoiDung extends PureComponent {
             <Form.Item>
               {getFieldDecorator('name', {
                 initialValue: '',
-                rules: [{ required: true, message: 'Họ tên không được để trống!' }],
+                rules: [{
+                  required: true,
+                  message: 'Họ tên không được để trống!'
+                }]
               })(
-                <Input placeholder="Họ Tên" size="large" />
+                <Input placeholder="Họ Tên" size="large"/>
               )}
             </Form.Item>
             <Form.Item style={{ marginTop: '25px' }}>
               {getFieldDecorator('username', {
                 initialValue: '',
-                rules: [{ required: true, message: 'Tài khoản không được để trống!' }],
+                rules: [{
+                  required: true,
+                  message: 'Tài khoản không được để trống!'
+                }]
               })(
-                <Input placeholder="Tài Khoản" size="large" />
+                <Input placeholder="Tài Khoản" size="large"/>
               )}
             </Form.Item>
             <Form.Item style={{ marginTop: '25px' }}>
@@ -335,10 +348,14 @@ class DanhSachNguoiDung extends PureComponent {
                 initialValue: '',
 
                 rules: [{
-                  type: 'email', message: 'Không đúng định dạng email!',
-                }, { required: true, message: 'Email không được để trống!' }],
+                  type: 'email',
+                  message: 'Không đúng định dạng email!'
+                }, {
+                  required: true,
+                  message: 'Email không được để trống!'
+                }]
               })(
-                <Input placeholder="Email" size="large" />
+                <Input placeholder="Email" size="large"/>
               )}
             </Form.Item>
             <Form.Item style={{ marginTop: '25px' }}>
@@ -346,9 +363,12 @@ class DanhSachNguoiDung extends PureComponent {
               {getFieldDecorator('password', {
                 initialValue: '',
 
-                rules: [{ required: true, message: 'Mật khẩu không được để trống!' }],
+                rules: [{
+                  required: true,
+                  message: 'Mật khẩu không được để trống!'
+                }]
               })(
-                <Input size="large" type="password" placeholder="Password" />
+                <Input size="large" type="password" placeholder="Password"/>
               )}
             </Form.Item>
             <Form.Item style={{ marginTop: '25px' }}>
@@ -356,23 +376,29 @@ class DanhSachNguoiDung extends PureComponent {
               {getFieldDecorator('role', {
                 initialValue: '',
 
-                rules: [{ required: true, message: 'Quyền không được để trống!' }],
+                rules: [{
+                  required: true,
+                  message: 'Quyền không được để trống!'
+                }]
               })(
                 <Select
                   size="large"
                   placeholder="Quyền"
                 >
-                  <Select.Option key='admin'>Quản Trị Viên</Select.Option>
-                  <Select.Option key='technical'>Quản Lý Kỹ Thuật</Select.Option>
-                  <Select.Option key='stocker'>Quản Lý Kho</Select.Option>
-                  <Select.Option key='repair'>Quản Lý Sửa Chữa</Select.Option>
-                  <Select.Option key='user'>Người Dùng Thường</Select.Option>
+                  <Select.Option key="admin">Quản Trị Viên</Select.Option>
+                  <Select.Option key="technical">Quản Lý Kỹ Thuật</Select.Option>
+                  <Select.Option key="stocker">Quản Lý Kho</Select.Option>
+                  <Select.Option key="repair">Quản Lý Sửa Chữa</Select.Option>
+                  <Select.Option key="user">Người Dùng Thường</Select.Option>
                 </Select>
               )}
             </Form.Item>
             <Form.Item style={{ marginTop: '25px' }}>
               {getFieldDecorator('warehouseId', {
-                rules: [{ required: true, message: 'Kho hàng không được để trống!' }],
+                rules: [{
+                  required: true,
+                  message: 'Kho hàng không được để trống!'
+                }]
               })(
                 <Select
                   size="large"
@@ -385,7 +411,12 @@ class DanhSachNguoiDung extends PureComponent {
             </Form.Item>
           </Form>
         </Modal>
-        <EditNguoiDung showModalEdit={this.showModalEdit} visibleEdit={this.state.visibleEdit} recordEdit={this.state.recordEdit} closeModalEdit={this.closeModalEdit} />
+        <EditNguoiDung
+          showModalEdit={this.showModalEdit}
+          visibleEdit={this.state.visibleEdit}
+          recordEdit={this.state.recordEdit}
+          closeModalEdit={this.closeModalEdit}
+        />
       </PageHeaderWrapper>
     );
   }

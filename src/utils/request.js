@@ -19,7 +19,7 @@ const codeMessage = {
   500: 'InternalServerError',
   502: 'BadGateway',
   503: 'ServiceUnavailable',
-  504: 'GatewayTimeout',
+  504: 'GatewayTimeout'
 };
 
 const checkStatus = response => {
@@ -29,7 +29,7 @@ const checkStatus = response => {
   const errortext = codeMessage[response.status] || response.statusText;
   notification.error({
     message: `Request error ${response.status}: ${response.url}`,
-    description: errortext,
+    description: errortext
   });
   const error = new Error(errortext);
   error.name = response.status;
@@ -66,7 +66,7 @@ const cachedSave = (response, hashcode) => {
 export default function request(url, option) {
   const options = {
     expirys: isAntdPro(),
-    ...option,
+    ...option
   };
   /**
    * Produce fingerprints based on url and parameters
@@ -83,22 +83,22 @@ export default function request(url, option) {
   };
   const newOptions = { ...defaultOptions, ...options };
   if (
-    newOptions.method === 'POST' ||
-    newOptions.method === 'PUT' ||
-    newOptions.method === 'DELETE'
+    newOptions.method === 'POST'
+    || newOptions.method === 'PATCH'
+    || newOptions.method === 'DELETE'
   ) {
     if (!(newOptions.body instanceof FormData)) {
       newOptions.headers = {
         Accept: 'application/json',
         'Content-Type': 'application/json; charset=utf-8',
-        ...newOptions.headers,
+        ...newOptions.headers
       };
       newOptions.body = JSON.stringify(newOptions.body);
     } else {
       // newOptions.body is FormData
       newOptions.headers = {
         Accept: 'application/json',
-        ...newOptions.headers,
+        ...newOptions.headers
       };
     }
   }
@@ -120,7 +120,7 @@ export default function request(url, option) {
   }
   return fetch(url, newOptions)
     .then(checkStatus)
-    //.then(response => cachedSave(response, hashcode))
+    // .then(response => cachedSave(response, hashcode))
     .then(response => {
       // DELETE and 204 do not return data by default
       // using .json will report an error.
@@ -134,7 +134,7 @@ export default function request(url, option) {
       if (status === 401) {
         /* eslint-disable no-underscore-dangle */
         window.g_app._store.dispatch({
-          type: 'login/logout',
+          type: 'login/logout'
         });
         return;
       }

@@ -1,10 +1,7 @@
 import React, { PureComponent } from 'react';
-import PageHeaderWrapper from '@/components/PageHeaderWrapper';
-import { Link, Redirect } from 'react-router-dom';
-import {
-  Card, Input, Row, Col, Button, Table, Tag, Icon, Modal, message, Form, Select
-} from 'antd';
-const token = localStorage.getItem('token');
+import { editUser } from '@/services/user';
+import { getListWarehouses } from '@/services/warehouse';
+import { Input, Modal, message, Form, Select } from 'antd';
 
 class EditNguoiDung extends PureComponent {
   constructor(props) {
@@ -12,7 +9,7 @@ class EditNguoiDung extends PureComponent {
     this.state = {
       khohang: [],
       visibleEdit: false,
-      recordEdit:{},
+      recordEdit: {}
     };
   }
 
@@ -21,54 +18,25 @@ class EditNguoiDung extends PureComponent {
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
-        this.request('http://localhost:3000/api/users/' + this.props.recordEdit.id, {
-          method: 'PATCH',
-          headers: {
-            Accept: 'application/json',
-            'Content-Type': 'application/json; charset=utf-8',
-            Authorization: 'Bearer ' + token
-          },
-          body: JSON.stringify(values)
-        }).then((data) => {
-          message.success('Sửa kho hàng thành công');
-          this.props.closeModalEdit();
-        });
-
-
+        editUser(this.props.recordEdit.id, values)
+          .then((data) => {
+            message.success('Sửa kho hàng thành công');
+            this.props.form.resetFields();
+            this.props.closeModalEdit();
+          });
       }
     });
-  }
-  componentDidMount() {
-    this.request('http://localhost:3000/api/warehouses', {
-      method: 'GET',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json; charset=utf-8',
-        Authorization: 'Bearer ' + token
-      }
-    }).then((data) => {
-      this.setState({
-        khohang: data.items
-      });
-      this.forceUpdate();
-    });
-  }
-  request = (url, option) => {
-    const newOption = option;
-    return fetch(url, option)
-      .then((response) => {
-        // DELETE and 204 do not return data by default
-        // using .json will report an error.
-        if (newOption.method === 'DELETE' || response.status === 204) {
-          return response;
-        }
-        // console.log(response);
-        return response.json();
-      })
-      .then((data) => data);
   };
 
-
+  componentDidMount() {
+    getListWarehouses()
+      .then((data) => {
+        this.setState({
+          khohang: data.items
+        });
+        this.forceUpdate();
+      });
+  }
 
   render() {
     const kho = this.state.khohang;
@@ -89,17 +57,23 @@ class EditNguoiDung extends PureComponent {
           <Form.Item>
             {getFieldDecorator('name', {
               initialValue: recordEdit.name,
-              rules: [{ required: true, message: 'Họ tên không được để trống!' }],
+              rules: [{
+                required: true,
+                message: 'Họ tên không được để trống!'
+              }]
             })(
-              <Input placeholder="Họ Tên" size="large" />
+              <Input placeholder="Họ Tên" size="large"/>
             )}
           </Form.Item>
           <Form.Item style={{ marginTop: '25px' }}>
             {getFieldDecorator('username', {
               initialValue: recordEdit.username,
-              rules: [{ required: true, message: 'Tài khoản không được để trống!' }],
+              rules: [{
+                required: true,
+                message: 'Tài khoản không được để trống!'
+              }]
             })(
-              <Input placeholder="Tài Khoản" size="large" />
+              <Input placeholder="Tài Khoản" size="large"/>
             )}
           </Form.Item>
           <Form.Item style={{ marginTop: '25px' }}>
@@ -108,10 +82,14 @@ class EditNguoiDung extends PureComponent {
               initialValue: recordEdit.email,
 
               rules: [{
-                type: 'email', message: 'Không đúng định dạng email!',
-              }, { required: true, message: 'Email không được để trống!' }],
+                type: 'email',
+                message: 'Không đúng định dạng email!'
+              }, {
+                required: true,
+                message: 'Email không được để trống!'
+              }]
             })(
-              <Input placeholder="Email" size="large" />
+              <Input placeholder="Email" size="large"/>
             )}
           </Form.Item>
           <Form.Item style={{ marginTop: '25px' }}>
@@ -119,9 +97,12 @@ class EditNguoiDung extends PureComponent {
             {getFieldDecorator('password', {
               initialValue: '',
 
-              rules: [{ required: true, message: 'Mật khẩu không được để trống!' }],
+              rules: [{
+                required: false,
+                message: 'Mật khẩu không được để trống!'
+              }]
             })(
-              <Input size="large" type="password" placeholder="Password" />
+              <Input size="large" type="password" placeholder="Password"/>
             )}
           </Form.Item>
           <Form.Item style={{ marginTop: '25px' }}>
@@ -129,7 +110,10 @@ class EditNguoiDung extends PureComponent {
             {getFieldDecorator('role', {
               initialValue: recordEdit.role,
 
-              rules: [{ required: true, message: 'Quyền không được để trống!' }],
+              rules: [{
+                required: true,
+                message: 'Quyền không được để trống!'
+              }]
             })(
               <Select
                 size="large"
@@ -145,9 +129,12 @@ class EditNguoiDung extends PureComponent {
           </Form.Item>
           <Form.Item style={{ marginTop: '25px' }}>
             {getFieldDecorator('warehouseId', {
-              initialValue: recordEdit.warehouse.id,
+              initialValue: (recordEdit.warehouse) ? recordEdit.warehouse.id : '',
 
-              rules: [{ required: true, message: 'Kho hàng không được để trống!' }],
+              rules: [{
+                required: true,
+                message: 'Kho hàng không được để trống!'
+              }]
             })(
               <Select
                 size="large"
