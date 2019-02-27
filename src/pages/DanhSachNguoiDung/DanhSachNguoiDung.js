@@ -38,7 +38,7 @@ class DanhSachNguoiDung extends PureComponent {
       pagination: {
         total: 1,
         current: 1,
-        pageSize: 10,
+        pageSize: 10
       }
     };
   }
@@ -54,7 +54,7 @@ class DanhSachNguoiDung extends PureComponent {
   closeModalEdit = (record) => {
     this.setState({
       visibleEdit: !this.state.visibleEdit,
-      loading: true,
+      loading: true
     });
     getListUser('?filter={"populate":"warehouseId"}')
       .then((data) => {
@@ -64,14 +64,13 @@ class DanhSachNguoiDung extends PureComponent {
             pagination: {
               total: data.count,
               current: 1,
-              pageSize: 10,
+              pageSize: 10
             },
-            loading: false,
+            loading: false
           });
           // this.forceUpdate();
         }
-      }
-      );
+      });
   };
 
   showModal = (record) => {
@@ -90,9 +89,7 @@ class DanhSachNguoiDung extends PureComponent {
             khohang: data.items
           });
         }
-      }
-      );
-
+      });
     this.setState({
       visibleCrate: true
     });
@@ -112,15 +109,14 @@ class DanhSachNguoiDung extends PureComponent {
                 pagination: {
                   total: data.count,
                   current: 1,
-                  pageSize: 10,
+                  pageSize: 10
                 },
-                loading: false,
+                loading: false
               });
               message.success('Xoá người dùng thành công');
               // this.forceUpdate();
             }
-          }
-          );
+          });
       });
   };
 
@@ -141,18 +137,14 @@ class DanhSachNguoiDung extends PureComponent {
                     pagination: {
                       total: data.count,
                       current: 1,
-                      pageSize: 10,
+                      pageSize: 10
                     },
-                    loading: false,
+                    loading: false
                   });
+                  message.success('Thêm người dùng thành công');
                 }
-                message.success('Thêm người dùng thành công');
-
-                // this.forceUpdate();
               });
           });
-
-
       }
     });
   };
@@ -180,9 +172,9 @@ class DanhSachNguoiDung extends PureComponent {
             pagination: {
               total: data.count,
               current: 1,
-              pageSize: 10,
+              pageSize: 10
             },
-            loading: false,
+            loading: false
           });
         }
       });
@@ -198,7 +190,7 @@ class DanhSachNguoiDung extends PureComponent {
             pagination: {
               total: data.count,
               current: pagination.current,
-              pageSize: 10,
+              pageSize: 10
             },
             loading: false
           });
@@ -286,14 +278,14 @@ class DanhSachNguoiDung extends PureComponent {
             <Col span={6}>
               <h2>Quản Lý Người Dùng</h2>
             </Col>
-            <Col span={12} />
+            <Col span={12}/>
             <Col span={6} style={{ textAlign: 'center' }}>
               <Button type="primary" size="large" onClick={this.showModalCreate}>
                 Thêm Người Dùng
               </Button>
             </Col>
           </Row>
-          <br />
+          <br/>
           <Row>
             <Table
               columns={columns}

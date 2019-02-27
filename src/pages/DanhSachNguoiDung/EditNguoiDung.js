@@ -40,9 +40,7 @@ class EditNguoiDung extends PureComponent {
 
   render() {
     const kho = this.state.khohang;
-    const optionItems = kho.map((kho) =>
-      <Select.Option key={kho.id}>{kho.name}</Select.Option>
-    );
+    const optionItems = kho.map((kho) => <Select.Option key={kho.id}>{kho.name}</Select.Option>);
     const { getFieldDecorator } = this.props.form;
     const recordEdit = this.props.recordEdit;
     return (
@@ -62,7 +60,7 @@ class EditNguoiDung extends PureComponent {
                 message: 'Họ tên không được để trống!'
               }]
             })(
-              <Input placeholder="Họ Tên" size="large"/>
+              <Input placeholder="Họ Tên" size="large" />
             )}
           </Form.Item>
           <Form.Item style={{ marginTop: '25px' }}>
@@ -119,11 +117,11 @@ class EditNguoiDung extends PureComponent {
                 size="large"
                 placeholder="Quyền"
               >
-                <Select.Option key='admin'>Quản Trị Viên</Select.Option>
-                <Select.Option key='technical'>Quản Lý Kỹ Thuật</Select.Option>
-                <Select.Option key='stocker'>Quản Lý Kho</Select.Option>
-                <Select.Option key='repair'>Quản Lý Sửa Chữa</Select.Option>
-                <Select.Option key='user'>Người Dùng Thường</Select.Option>
+                <Select.Option key="admin">Quản Trị Viên</Select.Option>
+                <Select.Option key="technical">Quản Lý Kỹ Thuật</Select.Option>
+                <Select.Option key="stocker">Quản Lý Kho</Select.Option>
+                <Select.Option key="repair">Quản Lý Sửa Chữa</Select.Option>
+                <Select.Option key="user">Người Dùng Thường</Select.Option>
               </Select>
             )}
           </Form.Item>

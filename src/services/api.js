@@ -1,8 +1,8 @@
 import { stringify } from 'qs';
 import request from '@/utils/request';
-  import { apiAuth } from '../constants/apiList';
+import { apiAuth } from '../constants/apiList';
 // const domain= "http://192.168.13.106:3000/api";
-const domain= "http://18.220.181.131:3000/api";
+// const domain = 'http://18.220.181.131:3000/api';
 export async function queryRule(params) {
   return request(`/api/rule?${stringify(params)}`);
 }

@@ -30,7 +30,7 @@ class DanhSachKhoHang extends PureComponent {
     this.setState({
       visibleEdit: !this.state.visibleEdit,
     })
-    this.request('http://localhost:3000/api/warehouses', {
+    this.request('http://localhost:3001/api/warehouses', {
       method: 'GET',
       headers: {
         Accept: 'application/json',
@@ -58,7 +58,7 @@ class DanhSachKhoHang extends PureComponent {
     this.forceUpdate();
   }
   handleOk = () => {
-    this.request('http://localhost:3000/api/warehouses/' + this.state.record, {
+    this.request('http://localhost:3001/api/warehouses/' + this.state.record, {
       method: 'DELETE',
       headers: {
         Accept: 'application/json',
@@ -66,7 +66,7 @@ class DanhSachKhoHang extends PureComponent {
         Authorization: 'Bearer ' + token
       }
     }).then(() => {
-      this.request('http://localhost:3000/api/warehouses', {
+      this.request('http://localhost:3001/api/warehouses', {
         method: 'GET',
         headers: {
           Accept: 'application/json',
@@ -88,7 +88,7 @@ class DanhSachKhoHang extends PureComponent {
     this.props.form.validateFields((err, values) => {
       if (!err) {
         console.log('Received values of form: ', values);
-        this.request('http://localhost:3000/api/warehouses', {
+        this.request('http://localhost:3001/api/warehouses', {
           method: 'POST',
           headers: {
             Accept: 'application/json',
@@ -101,7 +101,7 @@ class DanhSachKhoHang extends PureComponent {
             visibleCrate: false,
           });
           this.props.form.resetFields();
-          this.request('http://localhost:3000/api/warehouses', {
+          this.request('http://localhost:3001/api/warehouses', {
             method: 'GET',
             headers: {
               Accept: 'application/json',
